@@ -7,6 +7,11 @@
 .guide-card{align-self:start}
 .guide-body{max-height:0;overflow:hidden;padding-top:0;padding-bottom:0;opacity:0;transform:translateY(-5px);transition:max-height .38s ease,padding .32s ease,opacity .24s ease,transform .32s ease}
 .guide-card[open] .guide-body{max-height:280px;padding-bottom:17px;opacity:1;transform:translateY(0)}
+.reward-odds{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0 0;padding:0;list-style:none}
+.reward-odds li{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 11px;background:#0b102066;border:1px solid #94a3b81c;border-radius:9px;font-size:12px}
+.reward-odds strong{color:#67e8f9;font:11px var(--mono)}
+.reward-odds span{color:#dbeafe}
+@media(max-width:620px){.reward-odds{grid-template-columns:1fr}}
 .faq-item p{max-height:0;overflow:hidden;padding-bottom:0;opacity:0;transform:translateY(-4px);transition:max-height .34s ease,padding .3s ease,opacity .24s ease,transform .3s ease}
 .faq-item[open] p{max-height:120px;padding-bottom:17px;opacity:1;transform:translateY(0)}
 @media(prefers-reduced-motion:reduce){.guide-body,.faq-item p{transition:none;transform:none}}
