@@ -468,4 +468,98 @@
       }
     });
   }
+
+  /* ---------------------------------------------------------------------
+     Live Discord counts from the public invite API. Counts are approximate,
+     cached locally, and never expose member names.
+     --------------------------------------------------------------------- */
+  const discordElements = $$('[data-discord-live]');
+  if (discordElements.length) {
+    const ENDPOINT = 'https://discord.com/api/v10/invites/WWZ73NvAkN?with_counts=true';
+    const CACHE_KEY = 'dicesmp:discord-counts:v1';
+    const CACHE_TTL = 5 * 60 * 1000;
+    const REFRESH_INTERVAL = 5 * 60 * 1000;
+    const numberFormat = new Intl.NumberFormat('en-US');
+    let lastFetch = 0;
+
+    const readCache = () => {
+      try {
+        const cached = JSON.parse(window.localStorage.getItem(CACHE_KEY) || 'null');
+        if (
+          cached &&
+          cached.savedAt &&
+          Number.isFinite(cached.online) &&
+          Number.isFinite(cached.members) &&
+          Date.now() - cached.savedAt < CACHE_TTL
+        ) {
+          return cached;
+        }
+      } catch (error) {
+        // Storage can be unavailable in private browsing; live counts still work.
+      }
+      return null;
+    };
+
+    const writeCache = (counts) => {
+      try {
+        window.localStorage.setItem(CACHE_KEY, JSON.stringify({ ...counts, savedAt: Date.now() }));
+      } catch (error) {
+        // Cache is an enhancement, not a requirement.
+      }
+    };
+
+    const renderCounts = (counts) => {
+      if (!counts) return;
+      const text = `${numberFormat.format(counts.online)} online · ~${numberFormat.format(counts.members)} members`;
+
+      discordElements.forEach((element) => {
+        const target = $('[data-discord-live-text]', element);
+        if (target) target.textContent = text;
+        element.hidden = false;
+        element.title = 'Live Discord counts; approximate and refreshed every few minutes.';
+      });
+    };
+
+    const cache = readCache();
+    if (cache) renderCounts(cache);
+
+    const fetchCounts = async () => {
+      if (document.visibilityState === 'hidden' || !navigator.onLine) return;
+      if (Date.now() - lastFetch < 30 * 1000) return;
+      lastFetch = Date.now();
+
+      const controller = new AbortController();
+      const timeout = window.setTimeout(() => controller.abort(), 8000);
+
+      try {
+        const response = await fetch(ENDPOINT, {
+          signal: controller.signal,
+          cache: 'no-store',
+          headers: { Accept: 'application/json' }
+        });
+        if (!response.ok) throw new Error(`Discord count request failed: ${response.status}`);
+        const data = await response.json();
+        const online = data.approximate_presence_count;
+        const members = data.approximate_member_count;
+        if (!Number.isFinite(online) || !Number.isFinite(members)) {
+          throw new Error('Discord counts were missing from the response.');
+        }
+        const counts = { online, members };
+        renderCounts(counts);
+        writeCache(counts);
+      } catch (error) {
+        // Keep any cached count visible; otherwise the section stays clean.
+      } finally {
+        window.clearTimeout(timeout);
+      }
+    };
+
+    window.setTimeout(fetchCounts, 900);
+    window.setInterval(fetchCounts, REFRESH_INTERVAL);
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible' && Date.now() - lastFetch > REFRESH_INTERVAL) {
+        fetchCounts();
+      }
+    });
+  }
 })();

@@ -916,6 +916,37 @@ p { text-wrap: pretty; }
 .discord-inner .button .icon { font-size: 17px; }
 .discord-inner .button span { margin-left: 2px; }
 
+.discord-inner .discord-live {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0 0;
+  color: #a5f3fc;
+  font: 500 10px/1.7 var(--mono);
+  letter-spacing: .35px;
+}
+
+.discord-inner .discord-live[hidden] { display: none; }
+
+.discord-live-dot {
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #67e8f9;
+  box-shadow: 0 0 9px rgba(56, 189, 248, .65);
+  animation: discord-live-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes discord-live-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 9px rgba(56, 189, 248, .65); }
+  50% { opacity: .5; box-shadow: 0 0 3px rgba(56, 189, 248, .3); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .discord-live-dot { animation: none; }
+}
+
 .vote-card {
   gap: 12px;
 }
