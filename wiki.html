@@ -244,11 +244,19 @@
             </div>
             <p class="wiki-note">Java and Bedrock share the same world. Gameplay mechanics follow Java Edition. For the smoothest experience, use Java 1.21.11 or the latest Bedrock release.</p>
           </div>
-          <div class="wiki-card command-card auth-card">
+          <div class="wiki-card auth-card">
             <span class="command-group">BEFORE YOU PLAY</span>
-            <div class="command-row"><code>/register &lt;password&gt; &lt;password&gt;</code><span>First join: create a password. Use 5–32 characters.</span></div>
-            <div class="command-row"><code>/login &lt;password&gt;</code><span>Returning Java player? Log in before you head out.</span></div>
-            <p class="wiki-note">Bedrock players are signed in through Floodgate. If the server asks for a password, use the same two commands.</p>
+            <div class="auth-flow">
+              <div class="auth-step">
+                <span class="auth-step-label">First join</span>
+                <p>An nLogin dialog opens in-game. Create a password (5–32 characters) and confirm it.</p>
+              </div>
+              <div class="auth-step">
+                <span class="auth-step-label">Returning</span>
+                <p>Enter your password in the login dialog. No chat commands needed.</p>
+              </div>
+            </div>
+            <p class="wiki-note">Bedrock players are signed in automatically through Floodgate.</p>
           </div>
         </section>
 
@@ -330,7 +338,7 @@
             </details>
             <details class="wiki-card guide-card">
               <summary><span class="guide-icon" aria-hidden="true">♢</span><span><strong>Other handy details</strong><small>Small things worth knowing</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
-              <div class="guide-body"><p>Clumps combines nearby experience orbs into fewer, larger orbs to make XP collection smoother and reduce the number of entities on the ground. Simple_RTP sends you up to 30,000 blocks from spawn in the Overworld, with a 160-second cooldown and a 5-second countdown; random teleport is disabled in the Nether and End. SkinsRestorer lets players using offline-mode clients display custom skins. CoreProtect keeps activity logs for staff investigations. nLogin adds password authentication because the server runs in offline mode: Java players register on first join and log in afterward, while Bedrock players connect through Floodgate. Balloons from DiceCustomPlugin follow your character around.</p></div>
+              <div class="guide-body"><p>Clumps combines nearby experience orbs into fewer, larger orbs to make XP collection smoother and reduce the number of entities on the ground. Simple_RTP sends you up to 30,000 blocks from spawn in the Overworld, with a 160-second cooldown and a 5-second countdown; random teleport is disabled in the Nether and End. SkinsRestorer lets players using offline-mode clients display custom skins. CoreProtect keeps activity logs for staff investigations. nLogin adds password authentication because the server runs in offline mode: Java players use in-game dialogs to create a password on first join and sign in when they return, while Bedrock players are signed in automatically through Floodgate. Balloons from DiceCustomPlugin follow your character around.</p></div>
             </details>
             <details class="wiki-card guide-card">
               <summary><span class="guide-icon" aria-hidden="true">✧</span><span><strong>AFK rewards</strong><small>Earn rewards while idling</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>

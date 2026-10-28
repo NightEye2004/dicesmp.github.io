@@ -1402,7 +1402,6 @@ p { text-wrap: pretty; }
   letter-spacing: 1.1px;
 }
 
-.join-auth code,
 .rank-card code {
   color: #a5f3fc;
   background: rgba(56, 189, 248, .08);
@@ -1412,7 +1411,40 @@ p { text-wrap: pretty; }
   overflow-wrap: anywhere;
 }
 
-.auth-card { margin-top: 14px; }
+.auth-card {
+  margin-top: 14px;
+  padding: 19px;
+}
+
+.auth-flow { display: grid; }
+
+.auth-step {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  padding: 10px 0;
+  border-top: 1px solid rgba(148, 163, 184, .08);
+}
+
+.auth-step:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.auth-step-label {
+  color: #c4b5fd;
+  font: 11px/1.6 var(--mono);
+  letter-spacing: .2px;
+}
+
+.auth-step p {
+  margin: 0;
+  color: #b4c0d1;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
 .auth-card .wiki-note { margin: 12px 2px 0; }
 
 /* Rank progression table. */
@@ -1708,6 +1740,12 @@ p { text-wrap: pretty; }
   .join-note { font-size: 11px; }
   .join-auth { padding: 12px 14px; font-size: 11px; }
   .auth-card { padding: 16px 14px; }
+
+  .auth-step {
+    grid-template-columns: 1fr;
+    gap: 2px;
+    padding: 9px 0;
+  }
 
   .rank-card { padding: 4px 12px 15px; }
   .rank-card .rank-command {
