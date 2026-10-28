@@ -350,9 +350,10 @@
           </div>
           <div class="wiki-card rank-card">
             <div class="command-row rank-command"><code>/rankup</code><span>Open the rank menu and check your next milestone.</span></div>
-            <div class="rank-table-wrap">
-              <table class="rank-table">
-                <caption>Requirements are lifetime totals. The path runs from Coal to Netherite.</caption>
+            <p class="rank-table-note" id="rank-table-note">Requirements are lifetime totals. The path runs from Coal to Netherite.</p>
+            <p class="table-scroll-hint">Swipe or scroll sideways to see all columns <span aria-hidden="true">→</span></p>
+            <section class="rank-table-wrap" aria-label="Rank requirements table" tabindex="0">
+              <table class="rank-table" aria-labelledby="rank-table-note">
                 <thead>
                   <tr><th scope="col">Rank</th><th scope="col">Ores mined</th><th scope="col">Votes</th><th scope="col">Player kills</th><th scope="col">Unlocks</th></tr>
                 </thead>
@@ -366,7 +367,7 @@
                   <tr><td><span class="rank-name">Netherite</span></td><td>30,000</td><td>200</td><td>1,000</td><td>Master Kit</td></tr>
                 </tbody>
               </table>
-            </div>
+            </section>
             <p class="wiki-note">Votes are counted by PinataParty. The Iron Silk Touch Kit includes an Efficiency V, Unbreaking III, Mending Silk Touch pickaxe. The Netherite Master Kit includes Protection V Netherite armor and a Sharpness V sword.</p>
           </div>
         </section>

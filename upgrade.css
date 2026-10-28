@@ -1400,6 +1400,20 @@ p { text-wrap: pretty; }
   -webkit-overflow-scrolling: touch;
 }
 
+.rank-table-wrap:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.table-scroll-hint {
+  display: none;
+  margin: 0 2px 7px;
+  color: #94a3b8;
+  font: 10px/1.6 var(--mono);
+  letter-spacing: .25px;
+}
+
 .rank-table {
   width: 100%;
   min-width: 720px;
@@ -1407,12 +1421,12 @@ p { text-wrap: pretty; }
   font-size: 12px;
 }
 
-.rank-table caption {
+.rank-table-note {
+  margin: 0;
   padding: 7px 0 13px;
   color: #94a3b8;
   font: 10px/1.7 var(--mono);
   letter-spacing: .3px;
-  text-align: left;
 }
 
 .rank-table th {
@@ -1640,6 +1654,7 @@ p { text-wrap: pretty; }
     min-height: 145px;
   }
   .feature-wide .card-index { bottom: 12px; right: 13px; }
+  .custom-head h2 { font-size: clamp(28px, 10vw, 39px); }
   .custom-grid { grid-template-columns: 1fr; }
   .custom-emoji {
     width: 46px;
@@ -1670,10 +1685,23 @@ p { text-wrap: pretty; }
     padding: 10px 0;
   }
   .rank-table { min-width: 660px; }
+  .table-scroll-hint { display: block; }
 
-  .connect-card { padding: 18px; gap: 18px; }
+  .connect-card {
+    grid-template-columns: 1fr;
+    padding: 18px;
+    gap: 18px;
+  }
   .connect-address strong { font-size: 16px; }
   .connect-meta { font-size: 9px; }
+
+  .command-row {
+    grid-template-columns: 1fr;
+    gap: 3px;
+    padding: 9px 0;
+  }
+  .command-row code { white-space: normal; }
+  .command-row span { font-size: 12px; }
 
   .footer-main {
     display: grid;
