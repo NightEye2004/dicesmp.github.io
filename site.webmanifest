@@ -1,0 +1,37 @@
+{
+  "name": "DiceSMP — Vanilla+ Minecraft Server",
+  "short_name": "DiceSMP",
+  "description": "A community-focused Vanilla+ Minecraft survival server for Java and Bedrock.",
+  "id": "https://web.dicesmp.online/",
+  "start_url": "https://web.dicesmp.online/",
+  "scope": "https://web.dicesmp.online/",
+  "lang": "en",
+  "dir": "ltr",
+  "display": "standalone",
+  "background_color": "#0b1020",
+  "theme_color": "#0b1020",
+  "icons": [
+    {
+      "src": "Logo/favicon.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "Logo/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "Logo/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "Logo/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

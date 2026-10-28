@@ -1,77 +1,515 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0B1020">
-  <meta name="description" content="The DiceSMP player guide: commands, server features, rules, world resets, and answers to common questions.">
-  <title>DiceSMP Wiki   Player Guide</title>
-  <link rel="icon" type="image/jpeg" href="Logo/dicesmp%20logo.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" crossorigin="anonymous">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="The DiceSMP player guide: commands, ranks, land claims, shopkeepers, death chests, voting, server rules, and answers to common questions.">
+  <meta name="author" content="DiceSMP">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Player Guide — DiceSMP Wiki | Commands, Ranks &amp; Rules</title>
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="DiceSMP">
+  <meta property="og:title" content="DiceSMP Player Guide — Commands, Claims &amp; Rules">
+  <meta property="og:description" content="Everything you need to settle into DiceSMP: commands, ranks, claims, shopkeepers, rules, and quick answers.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://web.dicesmp.online/wiki.html">
+  <meta property="og:image" content="https://web.dicesmp.online/Logo/dicesmp-banner.jpg">
+  <meta property="og:image:width" content="2172">
+  <meta property="og:image:height" content="724">
+  <meta property="og:image:alt" content="DiceSMP banner with a rolling dice and a lush Minecraft world">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DiceSMP Player Guide">
+  <meta name="twitter:description" content="Everything you need to settle into DiceSMP: commands, ranks, claims, shopkeepers, rules, and quick answers.">
+  <meta name="twitter:image" content="https://web.dicesmp.online/Logo/dicesmp-banner.jpg">
+  <meta name="twitter:image:alt" content="DiceSMP banner with a rolling dice and a lush Minecraft world">
+
+  <link rel="canonical" href="https://web.dicesmp.online/wiki.html">
+  <link rel="icon" type="image/png" sizes="64x64" href="Logo/favicon.png">
+  <link rel="apple-touch-icon" href="Logo/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preload" as="font" href="fonts/manrope-latin-var.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="fonts/dm-mono-400-latin.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="fonts/dm-mono-500-latin.woff2" type="font/woff2" crossorigin>
+  <link rel="dns-prefetch" href="//api.mcsrvstat.us">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="wiki.css">
+  <link rel="stylesheet" href="upgrade.css">
   <script src="script.js" defer></script>
+  <noscript>
+    <style>
+      .page-loader { display: none !important; }
+      .will-reveal { opacity: 1 !important; transform: none !important; }
+      .to-top, .scroll-progress, .server-status { display: none !important; }
+      @media (max-width: 820px) {
+        .site-header { height: auto; min-height: var(--header-h); padding-block: 12px; flex-wrap: wrap; }
+        .menu-toggle { display: none !important; }
+        .nav-links {
+          position: static !important;
+          display: flex !important;
+          flex-direction: row !important;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 2px 16px;
+          width: 100%;
+          max-height: none !important;
+          padding: 8px 0 0 !important;
+          overflow: visible !important;
+          background: transparent !important;
+          border: 0 !important;
+          box-shadow: none !important;
+          opacity: 1 !important;
+          visibility: visible !important;
+          transform: none !important;
+          pointer-events: auto !important;
+        }
+        .nav-links > a { padding: 6px 0 !important; border: 0 !important; font-size: 13px !important; }
+        .nav-links .nav-cta { margin: 0 !important; padding: 8px 12px !important; }
+      }
+    </style>
+  </noscript>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can Java and Bedrock players play together?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Join play.dicesmp.online. Bedrock uses port 12011. Server mechanics are based on Java Edition." }
+      },
+      {
+        "@type": "Question",
+        "name": "How many claims and homes can I have?",
+        "acceptedAnswer": { "@type": "Answer", "text": "You can own up to 4 separate land claims in the Overworld. Homes start at 3 and increase with rank: Copper 4, Gold 6, and Emerald 9." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do the Nether and End have land claims?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. GriefPrevention claims are enabled in the Overworld only. The Nether and End are open exploration without land claims." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I rank up?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Open the rankup menu in game and meet each rank's lifetime ore, vote, and player-kill requirements. The path runs from Coal to Netherite and also unlocks more homes and kits." }
+      },
+      {
+        "@type": "Question",
+        "name": "What do I get for voting?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Each vote gives 1 vote point and 1 Vote Crate key. Spend 5 vote points for 100 claim blocks in the voteshop, then use your keys at /warp crates." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does AngelChest keep my experience?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. AngelChest stores your items and collects your experience. A chest lasts 10,000 seconds, and you can have up to 5 at once." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I report a player or a server problem?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Open a ticket in the DiceSMP Discord for reports, concerns, bugs, or suggestions." }
+      },
+      {
+        "@type": "Question",
+        "name": "What if I died because of a server issue?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Contact staff through a Discord ticket. Staff can restore items when the death was caused by a server issue, not player error." }
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="wiki-page" id="top">
-  <div class="page-loader" id="pageLoader" aria-hidden="true"><div class="loader-emblem"><svg viewBox="0 0 64 64" role="presentation"><path class="sprout-stem" d="M32 43V25"/><path class="sprout-leaf sprout-leaf-left" d="M31 31C18 31 15 23 16 15c9 0 17 3 17 14"/><path class="sprout-leaf sprout-leaf-right" d="M33 27c1-11 8-15 17-15 1 9-3 16-17 19"/><path class="sprout-dice" d="m32 41 15 7-15 8-15-8 15-7Z"/><path class="sprout-dice-side" d="M17 48v-8l15-8 15 8v8"/><circle cx="26" cy="44" r="1.4"/><circle cx="38" cy="50" r="1.4"/><circle cx="37" cy="41" r="1.4"/></svg><span>Opening the field guide…</span></div></div>
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="DiceSMP home"><img src="Logo/dicesmp%20logo.jpg" alt="DiceSMP logo"><span>Dice<span class="brand-accent">SMP</span></span></a>
-    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
-    <nav class="nav-links" aria-label="Main navigation"><a href="index.html#about">About</a><a href="index.html#features">Features</a><a href="index.html#world">World</a><a href="index.html#streamers">Streamers</a><a href="index.html#vote">Vote</a><a href="wiki.html" aria-current="page">Wiki</a><a class="nav-cta" href="https://dsc.gg/dicesmp" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-discord" aria-hidden="true"></i> Join Discord <span>↗</span></a></nav>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <svg class="icon-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="icon-discord" viewBox="0 0 24 24">
+      <path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.078.037c-.211.375-.445.865-.609 1.25a18.27 18.27 0 0 0-5.487 0c-.164-.394-.406-.875-.618-1.25a.077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515.07.07 0 0 0-.032.028C.533 9.046-.319 13.58.1 18.058a.082.082 0 0 0 .031.056c2.053 1.508 4.041 2.423 5.993 3.03a.078.078 0 0 0 .084-.028c.462-.63.873-1.295 1.226-1.994a.076.076 0 0 0-.041-.106c-.653-.248-1.275-.55-1.873-.892a.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.011c3.928 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .079.01c.12.099.246.198.373.292a.077.077 0 0 1-.007.128c-.598.35-1.22.652-1.873.892a.077.077 0 0 0-.04.107c.36.698.772 1.363 1.225 1.993a.076.076 0 0 0 .084.029c1.961-.607 3.95-1.522 6.002-3.03a.077.077 0 0 0 .032-.055c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.029ZM8.02 15.331c-1.183 0-2.157-1.086-2.157-2.419s.956-2.419 2.157-2.419c1.211 0 2.176 1.096 2.157 2.419 0 1.333-.956 2.419-2.157 2.419Zm7.975 0c-1.183 0-2.157-1.086-2.157-2.419s.955-2.419 2.157-2.419c1.21 0 2.175 1.096 2.156 2.419 0 1.333-.946 2.419-2.156 2.419Z"/>
+    </symbol>
+    <symbol id="icon-tiktok" viewBox="0 0 24 24">
+      <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97a11.3 11.3 0 0 1-1.62-.93c-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07Z"/>
+    </symbol>
+    <symbol id="icon-copy" viewBox="0 0 24 24">
+      <rect x="9" y="9" width="11" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24">
+      <path d="m5 12 4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-arrow-up" viewBox="0 0 24 24">
+      <path d="M12 19V5m0 0-6 6m6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
+
+  <div class="page-loader" id="pageLoader" aria-hidden="true">
+    <div class="loader-emblem">
+      <svg viewBox="0 0 64 64" role="presentation" aria-hidden="true">
+        <path class="sprout-stem" d="M32 43V25"/>
+        <path class="sprout-leaf sprout-leaf-left" d="M31 31C18 31 15 23 16 15c9 0 17 3 17 14"/>
+        <path class="sprout-leaf sprout-leaf-right" d="M33 27c1-11 8-15 17-15 1 9-3 16-17 19"/>
+        <path class="sprout-dice" d="m32 41 15 7-15 8-15-8 15-7Z"/>
+        <path class="sprout-dice-side" d="M17 48v-8l15-8 15 8v8"/>
+        <circle cx="26" cy="44" r="1.4"/><circle cx="38" cy="50" r="1.4"/><circle cx="37" cy="41" r="1.4"/>
+      </svg>
+      <span>Opening the field guide…</span>
+    </div>
+  </div>
+
+  <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="index.html" aria-label="DiceSMP home">
+      <img src="Logo/dicesmp-logo.webp" alt="" width="40" height="40">
+      <span>Dice<span class="brand-accent">SMP</span></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation">
+      <span></span><span></span>
+    </button>
+    <nav class="nav-links" id="primary-navigation" aria-label="Main navigation">
+      <a href="index.html#about">About</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#world">World</a>
+      <a href="index.html#join">Join</a>
+      <a href="index.html#streamers">Streamers</a>
+      <a href="index.html#vote">Vote</a>
+      <a href="wiki.html" aria-current="page">Wiki</a>
+      <a class="nav-cta" href="https://dsc.gg/dicesmp" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-discord"></use></svg> Join Discord</a>
+    </nav>
   </header>
-  <main class="wiki-main">
-    <section class="wiki-hero section-wrap"><div class="wiki-hero-glow" aria-hidden="true"></div><div class="eyebrow"><span class="status-dot"></span> DICESMP FIELD GUIDE</div><h1>Welcome to your<br><span>next adventure.</span></h1><p>New here, or just looking for a command? Find the essentials for playing, building, trading, and making yourself at home.</p><div class="wiki-hero-actions"><a class="button button-primary" href="#getting-started">Get started <span>↓</span></a><a class="button button-glass" href="https://dsc.gg/dicesmp" target="_blank" rel="noopener noreferrer">Need a hand? <i class="fa-brands fa-discord" aria-hidden="true"></i> Join Discord ↗</a></div><div class="wiki-quick-links"><a href="#commands">Commands</a><a href="#features-guide">Features</a><a href="#rules">Rules</a><a href="#world-guide">World &amp; claims</a><a href="#faq">FAQs</a></div></section>
+  <button class="nav-scrim" type="button" tabindex="-1" aria-hidden="true" data-nav-close hidden></button>
+
+  <main class="wiki-main" id="main">
+    <section class="wiki-hero section-wrap">
+      <div class="wiki-hero-glow" aria-hidden="true"></div>
+      <div class="eyebrow"><span class="status-dot" aria-hidden="true"></span> DICESMP FIELD GUIDE</div>
+      <h1>Welcome to your<br><span>next adventure.</span></h1>
+      <p>New here, or just looking for a command? Find the essentials for playing, building, trading, and making yourself at home.</p>
+      <div class="wiki-hero-actions">
+        <a class="button button-primary" href="#getting-started">Get started <span aria-hidden="true">↓</span></a>
+        <a class="button button-glass" href="https://dsc.gg/dicesmp" target="_blank" rel="noopener noreferrer">Need a hand? <svg class="icon" aria-hidden="true"><use href="#icon-discord"></use></svg> Join Discord</a>
+      </div>
+      <div class="wiki-quick-links">
+        <a href="#commands">Commands</a><a href="#features-guide">Features</a><a href="#ranks">Ranks</a><a href="#rules">Rules</a><a href="#world-guide">World &amp; claims</a><a href="#faq">FAQs</a>
+      </div>
+    </section>
 
     <div class="wiki-layout section-wrap">
-      <aside class="wiki-toc" aria-label="Wiki contents"><span class="toc-title">IN THIS GUIDE</span><a href="#getting-started">Getting started</a><a href="#commands">Commands</a><a href="#features-guide">Server features</a><a href="#shopkeepers">Shopkeepers</a><a href="#rules">Community rules</a><a href="#world-guide">World &amp; claims</a><a href="#resets">Monthly resets</a><a href="#faq">FAQs</a><a class="toc-support" href="https://dsc.gg/dicesmp" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-discord" aria-hidden="true"></i> Discord support ↗</a></aside>
+      <aside class="wiki-toc" aria-label="Wiki contents" data-toc>
+        <span class="toc-title">IN THIS GUIDE</span>
+        <a href="#getting-started">Getting started</a>
+        <a href="#commands">Commands</a>
+        <a href="#features-guide">Server features</a>
+        <a href="#ranks">Rank progression</a>
+        <a href="#shopkeepers">Shopkeepers</a>
+        <a href="#rules">Community rules</a>
+        <a href="#world-guide">World &amp; claims</a>
+        <a href="#faq">FAQs</a>
+        <a class="toc-support" href="https://dsc.gg/dicesmp" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-discord"></use></svg> Discord support ↗</a>
+      </aside>
+
       <div class="wiki-content">
-        <section class="wiki-section" id="getting-started"><div class="wiki-section-head"><div><div class="eyebrow">FIRST STEPS</div><h2>Getting started</h2></div><p>Join from the edition you play and you’re ready to explore.</p></div><div class="wiki-card connect-card"><div><span class="connect-edition">JAVA EDITION</span><strong>play.dicesmp.online</strong><small>Numeric address: 185.207.166.133:19023</small></div><div><span class="connect-edition">BEDROCK EDITION</span><strong>play.dicesmp.online</strong><small>Port: 12011 · Numeric address: 185.207.166.133:12011</small></div><p class="wiki-note">Java and Bedrock share the same world. Gameplay mechanics follow Java Edition. For the smoothest experience, use Java 1.21.11 or the latest Bedrock release.</p></div></section>
-
-        <section class="wiki-section" id="commands"><div class="wiki-section-head"><div><div class="eyebrow">QUICK REFERENCE</div><h2>Commands &amp; chat</h2></div><p>Type these in chat while you’re in the server.</p></div><div class="command-grid">
-          <article class="wiki-card command-card"><span class="command-group">GETTING AROUND</span><div class="command-row"><code>/sethome</code><span>Save a home. You can keep up to 3.</span></div><div class="command-row"><code>/tpa &lt;player&gt;</code><span>Ask to teleport to a player.</span></div><div class="command-row"><code>/tpahere &lt;player&gt;</code><span>Ask a player to teleport to you.</span></div><div class="command-row"><code>/tpaaccept</code><span>Accept an incoming teleport request.</span></div><div class="command-row"><code>/tpacancel</code><span>Cancel your outgoing teleport request.</span></div><div class="command-row"><code>/pwarp</code><span>Open player warp help and browse public warps.</span></div><div class="command-row"><code>/sort</code><span>Sort your inventory or a container.</span></div></article>
-          <article class="wiki-card command-card"><span class="command-group">COMMUNITY &amp; EXTRAS</span><div class="command-row"><code>/vote</code><span>Open the five server voting links.</span></div><div class="command-row"><code>/voteshop</code><span>Spend vote points on rewards like claim blocks.</span></div><div class="command-row"><code>/link</code><span>Link your Minecraft account to Discord.</span></div><div class="command-row"><code>/actp</code><span>Use AngelChest’s player access feature.</span></div><div class="command-row"><code>[i] · [item]</code><span>Show the item you’re holding in chat.</span></div><div class="command-row"><code>[inv] · [ender]</code><span>Share your inventory or Ender Chest in chat.</span></div><div class="command-row"><code>[ping]</code><span>Show your ping. Java only; this chat tag doesn’t work on Bedrock.</span></div></article>
-        </div><p class="wiki-note">Player warps are limited to 3 per player. Use <code>/pwarp</code> for the commands available on the server.</p></section>
-
-        <section class="wiki-section" id="features-guide"><div class="wiki-section-head"><div><div class="eyebrow">HOW THINGS WORK</div><h2>Server features</h2></div><p>Helpful extras that keep the focus on Minecraft and the community.</p></div><div class="guide-grid">
-          <details class="wiki-card guide-card"><summary><span class="guide-icon">⌂</span><span><strong>Claims &amp; protection</strong><small>Keep your builds yours</small></span><span class="guide-plus">+</span></summary><div class="guide-body"><p>Use a golden shovel to select two corners and create a protected claim. You can have 2 separate claims; claim expansions let you grow them without a fixed size limit. Earn 100 claim blocks per hour played, or exchange 5 vote points for 100 claim blocks in <code>/voteshop</code>. Creepers and TNT won’t damage builds above sea level or inside claimed land.</p></div></details>
-          <details class="wiki-card guide-card"><summary><span class="guide-icon">♧</span><span><strong>Teams</strong><small>Build and adventure together</small></span><span class="guide-plus">+</span></summary><div class="guide-body"><p>BetterTeams supports teams of up to 20 players, with 1 team home and 1 team warp. Team Ender Chest access is disabled.</p></div></details>
-          <details class="wiki-card guide-card"><summary><span class="guide-icon">✦</span><span><strong>Chests &amp; trading</strong><small>Organize, stock, and sell</small></span><span class="guide-plus">+</span></summary><div class="guide-body"><p>Shopkeepers let you set up item-for-item trades using a hired Wandering Trader and a linked container. See the illustrated setup below.</p></div></details>
-          <details class="wiki-card guide-card"><summary><span class="guide-icon">⚄</span><span><strong>Diamonds, votes &amp; rewards</strong><small>Support the server and earn rewards</small></span><span class="guide-plus">+</span></summary><div class="guide-body"><p>Diamonds are used for player trading and the CoinFlip game. Each vote earns 1 diamond and 1 vote point. Spend vote points in <code>/voteshop</code>; claim blocks are available now, and more rewards may be added later. ExcellentCrates offer cosmetics and items without overpowered gear. ChatGames also reward diamonds to the fastest or most knowledgeable player.</p></div></details>
-          <details class="wiki-card guide-card"><summary><span class="guide-icon">☁</span><span><strong>Player warps &amp; teleporting</strong><small>Meet up with other players</small></span><span class="guide-plus">+</span></summary><div class="guide-body"><p>Essentials provides homes (up to 3), player teleport requests, and teleport-to-you requests. Player warps are public destinations players can create and share; each player can have up to 3. Use <code>/pwarp</code> to see the commands available in-game.</p></div></details>
-          <details class="wiki-card guide-card"><summary><span class="guide-icon">☾</span><span><strong>Death chests &amp; recovery</strong><small>Know what is and isn’t saved</small></span><span class="guide-plus">+</span></summary><div class="guide-body"><p>AngelChest protects your death chest indefinitely, including during PvP, but it does not save experience. Use <code>/actp</code> for its player access feature. If a server issue caused your death, staff may restore lost items. Deaths caused by player error aren’t eligible for server-related restoration.</p></div></details>
-          <details class="wiki-card guide-card"><summary><span class="guide-icon">⟳</span><span><strong>Restart reminders &amp; updates</strong><small>Stay in the loop in-game</small></span><span class="guide-plus">+</span></summary><div class="guide-body"><p>The in-game changelog keeps server updates available right in Minecraft, so you don’t need to visit Discord or the website every time something changes. On supported newer Minecraft versions, updates appear through a custom screen/dialog. DiceCustomPlugin also announces scheduled restarts up to 24 hours ahead and shows a boss-bar countdown as restart time approaches.</p></div></details>
-          <details class="wiki-card guide-card"><summary><span class="guide-icon">◉</span><span><strong>Voice, chat &amp; custom looks</strong><small>More ways to hang out</small></span><span class="guide-plus">+</span></summary><div class="guide-body"><p>DiscordSRV syncs in-game chat with Discord; use <code>/link</code> to connect your account. InteractiveChat supports item, inventory, Ender Chest, and ping tags in chat; its Discord add-on brings supported previews to Discord too. Voice chat is Java-only. ItemsAdder adds custom textures, items, and cosmetics. New cosmetics have just been added, with more coming soon.</p></div></details>
-          <details class="wiki-card guide-card"><summary><span class="guide-icon">◇</span><span><strong>Crossplay &amp; versions</strong><small>Java and Bedrock together</small></span><span class="guide-plus">+</span></summary><div class="guide-body"><p>Geyser and Floodgate let Bedrock players join the Java server; gameplay mechanics follow Java. ViaVersion and ViaBackwards support other client versions, but items or textures may look different when your game version is older or newer than the server. For best results, Java players should use 1.21.11 and Bedrock players the latest version.</p></div></details>
-          <details class="wiki-card guide-card"><summary><span class="guide-icon">♢</span><span><strong>Other handy details</strong><small>Small things worth knowing</small></span><span class="guide-plus">+</span></summary><div class="guide-body"><p>Clumps combines nearby experience orbs into fewer, larger orbs to make XP collection smoother and reduce the number of entities on the ground. Simple_RTP can send you to a random location in the Overworld; random teleport is disabled in the Nether and End. SkinsRestorer lets players using offline-mode clients display custom skins. CoreProtect keeps activity logs for staff investigations. nLogin adds account authentication because the server runs in offline mode. Balloons from DiceCustomPlugin follow your character around.</p></div></details>
-        <details class="wiki-card guide-card"><summary><span class="guide-icon">✧</span><span><strong>AFK rewards</strong><small>Earn rewards while idling</small></span><span class="guide-plus">+</span></summary><div class="guide-body"><p>Visit <code>/warp afk</code> or use <code>/afk</code> to access AFK rewards. Listed reward chances:</p><ul class="reward-odds"><li><strong>50%</strong><span>1 Iron</span></li><li><strong>25%</strong><span>1 Diamond</span></li><li><strong>10%</strong><span>50 Claim Blocks</span></li><li><strong>0.1%</strong><span>1 Netherite Scrap</span></li></ul></div></details>
-          <details class="wiki-card guide-card"><summary><span class="guide-icon">⬡</span><span><strong>Server protection</strong><small>Protected by Vulcan</small></span><span class="guide-plus">+</span></summary><div class="guide-body"><p>DiceSMP is protected by Vulcan.</p></div></details>
-        </div></section>
-
-        <section class="wiki-section" id="shopkeepers"><div class="wiki-section-head"><div><div class="eyebrow">PLAYER-TO-PLAYER SHOPS</div><h2>Set up a Shopkeeper</h2></div><p>Make an item-for-item shop using a Wandering Trader and a container.</p></div><ol class="shop-steps"><li><span class="step-number">01</span><div><h3>Hire a Wandering Trader</h3><p>Hold 32 emeralds and shift-right-click a Wandering Trader to hire them. Place a chest, double chest, or barrel for the shop’s stock.</p></div></li><li><span class="step-number">02</span><div><h3>Link the stock container</h3><p>Hold the trader egg and right-click the container you placed. Then place the trader where you want them to stand. Each trader can link to one container.</p></div></li><li><span class="step-number">03</span><div><h3>Stock items and set the trade</h3><p>Put the items you want to sell into the linked container. Shift-right-click your trader to open the editor. Set the Result (what the customer receives), Cost 1 (the required payment), and optional Cost 2. Click item stacks to adjust trade quantities, up to 64. You need at least one item for each trade slot you configure.</p></div></li></ol>
-          <div class="shop-gallery"><figure class="wiki-card shop-shot"><a href="Pictures/container.png" target="_blank"><img src="Pictures/container.png" alt="Container stocked with items for a Shopkeeper" loading="lazy"></a><figcaption><span>01 · STOCK THE SHOP</span><strong>Put your sale items in the linked container.</strong></figcaption></figure><figure class="wiki-card shop-shot"><a href="Pictures/shopkeepereditgui.png" target="_blank"><img src="Pictures/shopkeepereditgui.png" alt="Shopkeeper editor showing Result, Cost 1, and optional Cost 2" loading="lazy"></a><figcaption><span>02 · SET THE TRADE</span><strong>Choose the result and the items customers pay.</strong></figcaption></figure><figure class="wiki-card shop-shot"><a href="Pictures/result.png" target="_blank"><img src="Pictures/result.png" alt="Player-facing Shopkeeper trade preview" loading="lazy"></a><figcaption><span>03 · CHECK THE PREVIEW</span><strong>Confirm how your finished trade looks to players.</strong></figcaption></figure></div>
+        <section class="wiki-section" id="getting-started">
+          <div class="wiki-section-head">
+            <div><div class="eyebrow">FIRST STEPS</div><h2>Getting started</h2></div>
+            <p>Join from the edition you play and you’re ready to explore.</p>
+          </div>
+          <div class="wiki-card connect-card">
+            <div class="connect-row">
+              <span class="connect-edition">JAVA EDITION</span>
+              <div class="connect-address">
+                <strong>play.dicesmp.online</strong>
+                <button class="copy-address copy-compact" type="button" data-copy="play.dicesmp.online" aria-label="Copy — Java server address play.dicesmp.online">
+                  <svg class="icon copy-glyph" aria-hidden="true"><use href="#icon-copy"></use></svg><span class="copy-label">Copy</span>
+                </button>
+              </div>
+              <small>Numeric address: 185.207.166.133:19023 <button class="copy-numeric" type="button" data-copy="185.207.166.133:19023">Copy numeric</button></small>
+            </div>
+            <div class="connect-row">
+              <span class="connect-edition">BEDROCK EDITION</span>
+              <div class="connect-address">
+                <strong>play.dicesmp.online</strong>
+                <button class="copy-address copy-compact" type="button" data-copy="play.dicesmp.online" aria-label="Copy — Bedrock server address play.dicesmp.online">
+                  <svg class="icon copy-glyph" aria-hidden="true"><use href="#icon-copy"></use></svg><span class="copy-label">Copy</span>
+                </button>
+              </div>
+              <small>Port: 12011 · Numeric address: 185.207.166.133:12011 <button class="copy-numeric" type="button" data-copy="185.207.166.133:12011">Copy numeric</button></small>
+            </div>
+            <div class="connect-meta">
+              <span class="server-status" data-server-status data-state="checking" role="status">
+                <span class="status-beacon" aria-hidden="true"></span>
+                <span data-status-text>Checking live status…</span>
+              </span>
+              <span class="server-version" data-server-version>Purpur 1.21.11</span>
+            </div>
+            <p class="wiki-note">Java and Bedrock share the same world. Gameplay mechanics follow Java Edition. For the smoothest experience, use Java 1.21.11 or the latest Bedrock release.</p>
+          </div>
+          <div class="wiki-card command-card auth-card">
+            <span class="command-group">BEFORE YOU PLAY</span>
+            <div class="command-row"><code>/register &lt;password&gt; &lt;password&gt;</code><span>First join: create a password. Use 5–32 characters.</span></div>
+            <div class="command-row"><code>/login &lt;password&gt;</code><span>Returning Java player? Log in before you head out.</span></div>
+            <p class="wiki-note">Bedrock players are signed in through Floodgate. If the server asks for a password, use the same two commands.</p>
+          </div>
         </section>
 
-                <section class="wiki-section" id="rules"><div class="wiki-section-head"><div><div class="eyebrow">THE OFFICIAL RULES</div><h2>Minecraft server rules</h2></div><p>These are the official DiceSMP rules. Please read them before playing.</p></div><div class="rule-penalty"><span class="penalty-mark">!</span><p><strong>Immediate IP ban:</strong> Breaking any rule below results in an automatic IP ban. The server uses automated logging, and the owner states there are no exceptions or warnings.</p></div><div class="official-rule-groups"><article class="wiki-card official-rule-group"><div class="rule-group-heading"><span>01</span><div><h3>Server &amp; community</h3><p>Help keep the community kind, friendly, and peaceful.</p></div></div><ul><li><strong>Respect each other.</strong> Treat all players with kindness. Bullying, harassment, and toxic behavior are not tolerated.</li><li><strong>No below-the-belt jokes.</strong> Keep chat friendly. Offensive, highly personal, or deeply hurtful jokes are prohibited.</li><li><strong>No drama.</strong> Keep personal arguments out of global chat so the community stays peaceful and fun.</li></ul></article><article class="wiki-card official-rule-group"><div class="rule-group-heading"><span>02</span><div><h3>In-game gameplay</h3><p>Play fairly and don’t use traps or exploits against other players.</p></div></div><ul><li><strong>No cheating.</strong> Modded clients, X-ray packs, hacked clients, and unapproved third-party modifications are forbidden.</li><li><strong>No duping.</strong> Do not exploit game mechanics or glitches to duplicate items, blocks, or currency.</li><li><strong>No spam killing.</strong> Do not repeatedly kill the same player to ruin their experience or farm them.</li><li><strong>No TP trapping.</strong> Do not set traps that instantly kill players who accept a teleport request using <code>/tpa</code>.</li><li><strong>No AngelChest trapping.</strong> Do not trap another player’s AngelChest or build around or underneath it to steal their gear or kill them when they retrieve it.</li><li><strong>No pWarp voids.</strong> Do not set a player warp with <code>/pwarp</code> that sends players directly into the void, lava, or a fatal drop.</li></ul></article><article class="wiki-card official-rule-group"><div class="rule-group-heading"><span>03</span><div><h3>Performance &amp; farm restrictions</h3><p>Build responsibly and protect server performance.</p></div></div><ul><li><strong>No overpowered farms.</strong> Massive, unrestricted automated farms that consume excessive server resources are not allowed.</li><li><strong>No iron farms.</strong> Traditional and villager-based iron golem farms are prohibited.</li><li><strong>No lag machines.</strong> Redstone loops, entity crammers, or other contraptions designed to reduce server TPS are prohibited and result in a permanent ban.</li></ul></article></div><p class="wiki-note official-rules-note">For reports, concerns, or questions, open a ticket in the <a href="https://dsc.com/dicesmp" target="_blank" rel="noopener noreferrer">DiceSMP Discord ↗</a>.</p></section>
+        <section class="wiki-section" id="commands">
+          <div class="wiki-section-head">
+            <div><div class="eyebrow">QUICK REFERENCE</div><h2>Commands &amp; chat</h2></div>
+            <p>Type these in chat while you’re in the server. Select a command to copy it.</p>
+          </div>
+          <div class="command-grid">
+            <article class="wiki-card command-card">
+              <span class="command-group">GETTING AROUND</span>
+              <div class="command-row"><code>/sethome</code><span>Save a home. Start with 3; ranks unlock up to 9.</span></div>
+              <div class="command-row"><code>/tpa &lt;player&gt;</code><span>Ask to teleport to a player.</span></div>
+              <div class="command-row"><code>/tpahere &lt;player&gt;</code><span>Ask a player to teleport to you.</span></div>
+              <div class="command-row"><code>/tpaccept</code><span>Accept an incoming teleport request.</span></div>
+              <div class="command-row"><code>/tpdeny</code><span>Deny an incoming teleport request.</span></div>
+              <div class="command-row"><code>/tpacancel</code><span>Cancel your outgoing teleport request.</span></div>
+              <div class="command-row"><code>/rtp</code><span>Open the random-teleport menu for the Overworld.</span></div>
+              <div class="command-row"><code>/warps</code><span>Browse public warps; use /pwarp for player-warp help.</span></div>
+              <div class="command-row"><code>/sort</code><span>Sort your inventory or a container.</span></div>
+            </article>
+            <article class="wiki-card command-card">
+              <span class="command-group">COMMUNITY &amp; EXTRAS</span>
+              <div class="command-row"><code>/vote</code><span>Open the five server voting links.</span></div>
+              <div class="command-row"><code>/voteshop</code><span>Spend vote points on rewards like claim blocks.</span></div>
+              <div class="command-row"><code>/rankup</code><span>Open the rank menu and check your next milestone.</span></div>
+              <div class="command-row"><code>/bank</code><span>Deposit, withdraw, or check your banked diamonds.</span></div>
+              <div class="command-row"><code>/discord link</code><span>Link your Minecraft account to Discord.</span></div>
+              <div class="command-row"><code>/actp</code><span>Teleport to one of your AngelChests.</span></div>
+              <div class="command-row"><code>[i] · [item]</code><span>Show the item you’re holding in chat.</span></div>
+              <div class="command-row"><code>[inv] · [ender]</code><span>Share your inventory or Ender Chest in chat.</span></div>
+              <div class="command-row"><code>[ping]</code><span>Show your ping. Java only; this chat tag doesn’t work on Bedrock.</span></div>
+            </article>
+          </div>
+          <p class="wiki-note">Player warps are limited to 3 per player. They have a 3-second delay, a 10-second cooldown, and cancel if you move. Use <code>/warps</code> to browse them.</p>
+        </section>
 
-        <section class="wiki-section" id="world-guide"><div class="wiki-section-head"><div><div class="eyebrow">EXPLORE, BUILD, MAKE IT HOME</div><h2>World &amp; claims</h2></div><p>Know where to build, how protection works, and what changes over time.</p></div><div class="wiki-card world-guide-card"><article><span class="world-guide-icon">▦</span><div><h3>Overworld</h3><p>The Overworld is 10,000 × 10,000 blocks. Use <code>/rtp</code> for a random Overworld destination.</p></div></article><article><span class="world-guide-icon">♨</span><div><h3>Nether</h3><p>The Nether resets monthly. Builds there are deleted at reset, so avoid leaving anything you want to keep.</p></div></article><article><span class="world-guide-icon">◉</span><div><h3>End</h3><p>The End also resets monthly. Builds there are deleted at reset. Log out carefully: after a reset, you could next spawn over the void.</p></div></article><article><span class="world-guide-icon">⌂</span><div><h3>Your claims</h3><p>Protect land with a golden shovel. You can own up to 2 separate claims, then expand them as needed. Claim blocks accumulate at 100 per hour played; voting rewards points you can exchange for more.</p></div></article></div></section>
+        <section class="wiki-section" id="features-guide">
+          <div class="wiki-section-head">
+            <div><div class="eyebrow">HOW THINGS WORK</div><h2>Server features</h2></div>
+            <p>Helpful extras that keep the focus on Minecraft and the community.</p>
+          </div>
+          <div class="guide-grid">
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">⌂</span><span><strong>Claims &amp; protection</strong><small>Keep your builds yours</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>Use a golden shovel to select two corners and create a protected claim. You can own up to 4 separate claims. Claim blocks start at 100, accrue at 100 per hour played, and cap at 80,000; 5 vote points buy 100 more in <code>/voteshop</code>. Unused claims expire after 14 days, and all claims expire after 60 days of inactivity except for players with a large claim-block balance. Creepers and TNT won’t damage the surface or claimed land.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">♧</span><span><strong>Teams</strong><small>Build and adventure together</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>Teams start at 10 players, 10 team chests, and 1 team warp. Upgrading to level 2 costs 20 score and raises the limits to 20 players, 20 chests, and 2 warps. ClanWar adds organized 5v5 matches with a 60-second preparation phase, a 30-second kit vote, and spectator mode.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">✦</span><span><strong>Chests &amp; trading</strong><small>Organize, stock, and sell</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>Shopkeepers let you set up item-for-item trades using a hired Wandering Trader and a linked container. Hiring costs 32 emeralds, each trader links to one container within 15 blocks, and there is no per-player shop limit. See the illustrated setup below.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">⚄</span><span><strong>Diamonds, votes &amp; rewards</strong><small>Support the server and earn rewards</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>Diamonds are used for player trading, the CoinFlip game, and the diamond bank. Each vote gives 1 vote point and 1 Vote Crate key—not a diamond. Spend 5 points for 100 claim blocks in <code>/voteshop</code>, then open your Vote Crates at <code>/warp crates</code>; their 15 rewards include iron gear, food, diamonds, and a Shopkeeper. ChatGames award a base 1 diamond, with a chance at bonus diamonds.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">☁</span><span><strong>Player warps &amp; teleporting</strong><small>Meet up with other players</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>Essentials handles <code>/home</code>, <code>/tpa</code>, and <code>/tpahere</code>. Homes start at 3 and increase with rank up to 9. Player warps are public destinations: each player can create up to 3 with <code>/setwarp</code> and remove them with <code>/delwarp</code>. Browse them with <code>/warps</code>; warps have a 3-second delay, a 10-second cooldown, and cancel if you move.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">☾</span><span><strong>Death chests &amp; recovery</strong><small>Know what is and isn’t saved</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>AngelChest protects your items and collects your experience. A chest lasts 10,000 seconds, and you can have up to 5 at once; when a sixth is created, the oldest chest drops its contents. PvP death chests are protected. Use <code>/actp</code> to teleport to a chest, <code>/aclist</code> to list them, or <code>/acfetch</code> to fetch one. If a server issue caused your death, staff may restore lost items; deaths caused by player error aren’t eligible for server-related restoration.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">⟳</span><span><strong>Restart reminders &amp; updates</strong><small>Stay in the loop in-game</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>The in-game changelog keeps server updates available right in Minecraft, so you don’t need to visit Discord or the website every time something changes. On supported newer Minecraft versions, updates appear through a custom screen/dialog. DiceCustomPlugin also announces scheduled restarts up to 24 hours ahead and shows a boss-bar countdown as restart time approaches.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">◉</span><span><strong>Voice, chat &amp; custom looks</strong><small>More ways to hang out</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>DiscordSRV syncs in-game chat with Discord; use <code>/discord link</code> to connect your account. InteractiveChat supports item, inventory, Ender Chest, and ping tags in chat; its Discord add-on brings supported previews to Discord too. Voice chat is Java-only. ItemsAdder adds custom textures, items, and cosmetics.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">◇</span><span><strong>Crossplay &amp; versions</strong><small>Java and Bedrock together</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>Geyser and Floodgate let Bedrock players join the Java server; gameplay mechanics follow Java. ViaVersion and ViaBackwards support other client versions, but items or textures may look different when your game version is older or newer than the server. For best results, Java players should use 1.21.11 and Bedrock players the latest version.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">♢</span><span><strong>Other handy details</strong><small>Small things worth knowing</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>Clumps combines nearby experience orbs into fewer, larger orbs to make XP collection smoother and reduce the number of entities on the ground. Simple_RTP sends you up to 30,000 blocks from spawn in the Overworld, with a 160-second cooldown and a 5-second countdown; random teleport is disabled in the Nether and End. SkinsRestorer lets players using offline-mode clients display custom skins. CoreProtect keeps activity logs for staff investigations. nLogin adds password authentication because the server runs in offline mode: Java players register on first join and log in afterward, while Bedrock players connect through Floodgate. Balloons from DiceCustomPlugin follow your character around.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">✧</span><span><strong>AFK rewards</strong><small>Earn rewards while idling</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>Visit <code>/warp afk</code> to enter the AFK zone. Every 30 seconds you get 3 reward rolls; each roll has its own chance. <code>/afk</code> is the normal AFK toggle, not the reward zone.</p><ul class="reward-odds"><li><strong>10%</strong><span>1 Iron Ingot</span></li><li><strong>10%</strong><span>30 Claim Blocks</span></li><li><strong>80%</strong><span>Nothing</span></li></ul></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">⬡</span><span><strong>Server protection</strong><small>Protected by Vulcan</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>DiceSMP is protected by Vulcan.</p></div>
+            </details>
+          </div>
+        </section>
 
-        <section class="wiki-section" id="resets"><div class="reset-callout"><span class="reset-icon">⟳</span><div><div class="eyebrow">A FRESH FRONTIER EACH MONTH</div><h2>Nether &amp; End resets</h2><p>The Nether and End reset monthly. Any builds in those dimensions are removed when the reset happens. Bring home anything you want to keep, and take extra care when logging out in the End so you don’t return above the void after it resets.</p></div></div></section>
+        <section class="wiki-section" id="ranks">
+          <div class="wiki-section-head">
+            <div><div class="eyebrow">COAL TO NETHERITE</div><h2>Rank progression</h2></div>
+            <p>Meet lifetime totals, then claim your next rank from the in-game rankup menu.</p>
+          </div>
+          <div class="wiki-card rank-card">
+            <div class="command-row rank-command"><code>/rankup</code><span>Open the rank menu and check your next milestone.</span></div>
+            <div class="rank-table-wrap">
+              <table class="rank-table">
+                <caption>Requirements are lifetime totals. The path runs from Coal to Netherite.</caption>
+                <thead>
+                  <tr><th scope="col">Rank</th><th scope="col">Ores mined</th><th scope="col">Votes</th><th scope="col">Player kills</th><th scope="col">Unlocks</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><span class="rank-name">Coal</span></td><td>—</td><td>—</td><td>—</td><td>Start with 3 homes</td></tr>
+                  <tr><td><span class="rank-name">Copper</span></td><td>500</td><td>3</td><td>5</td><td>+1 home (4 total)</td></tr>
+                  <tr><td><span class="rank-name">Iron</span></td><td>1,500</td><td>10</td><td>25</td><td>Silk Touch Kit + chat emoji</td></tr>
+                  <tr><td><span class="rank-name">Gold</span></td><td>3,000</td><td>25</td><td>75</td><td>+2 homes (6 total) + <code>/condense</code></td></tr>
+                  <tr><td><span class="rank-name">Diamond</span></td><td>7,500</td><td>50</td><td>200</td><td>Colored name</td></tr>
+                  <tr><td><span class="rank-name">Emerald</span></td><td>15,000</td><td>100</td><td>500</td><td>+3 homes (9 total)</td></tr>
+                  <tr><td><span class="rank-name">Netherite</span></td><td>30,000</td><td>200</td><td>1,000</td><td>Master Kit</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="wiki-note">Votes are counted by PinataParty. The Iron Silk Touch Kit includes an Efficiency V, Unbreaking III, Mending Silk Touch pickaxe. The Netherite Master Kit includes Protection V Netherite armor and a Sharpness V sword.</p>
+          </div>
+        </section>
 
-        <section class="wiki-section" id="faq"><div class="wiki-section-head"><div><div class="eyebrow">QUICK ANSWERS</div><h2>Frequently asked questions</h2></div><p>Still stuck? The Discord ticket team can help.</p></div><div class="faq-list">
-          <details class="wiki-card faq-item"><summary>Can Java and Bedrock players play together?<span class="guide-plus">+</span></summary><p>Yes. Join <code>play.dicesmp.online</code>. Bedrock uses port <code>12011</code>. Server mechanics are based on Java Edition.</p></details>
-          <details class="wiki-card faq-item"><summary>How many claims and homes can I have?<span class="guide-plus">+</span></summary><p>You can have 2 separate land claims and up to 3 homes. Claims can be expanded with more claim blocks.</p></details>
-          <details class="wiki-card faq-item"><summary>When do the Nether and End reset?<span class="guide-plus">+</span></summary><p>Both dimensions reset monthly. Builds there are deleted, so keep anything important in the Overworld first.</p></details>
-          <details class="wiki-card faq-item"><summary>Does AngelChest keep my experience?<span class="guide-plus">+</span></summary><p>No. It protects your items in a death chest but does not save experience.</p></details>
-          <details class="wiki-card faq-item"><summary>How do I report a player or a server problem?<span class="guide-plus">+</span></summary><p>Open a ticket in the DiceSMP Discord for reports, concerns, bugs, or suggestions.</p></details>
-          <details class="wiki-card faq-item"><summary>What if I died because of a server issue?<span class="guide-plus">+</span></summary><p>Contact staff through a Discord ticket. Staff can restore items when the death was caused by a server issue, not player error.</p></details>
-        </div></section>
-        <section class="wiki-help"><span class="help-die">⚄</span><div><div class="eyebrow">WE’RE HERE TO HELP</div><h2>Something still unclear?</h2><p>Open a Discord ticket for reports, concerns, bugs, suggestions, or questions about the server.</p></div><a class="button button-primary" href="https://dsc.gg/dicesmp" target="_blank" rel="noopener noreferrer">Open a ticket ↗</a></section>
+        <section class="wiki-section" id="shopkeepers">
+          <div class="wiki-section-head">
+            <div><div class="eyebrow">PLAYER-TO-PLAYER SHOPS</div><h2>Set up a Shopkeeper</h2></div>
+            <p>Make an item-for-item shop using a Wandering Trader and a container.</p>
+          </div>
+          <ol class="shop-steps">
+            <li><span class="step-number">01</span><div><h3>Hire a Wandering Trader</h3><p>Hold 32 emeralds and shift-right-click a Wandering Trader to hire them. Place a chest, double chest, or barrel for the shop’s stock.</p></div></li>
+            <li><span class="step-number">02</span><div><h3>Link the stock container</h3><p>Hold the trader egg and right-click the container you placed. Then place the trader where you want them to stand; keep the container within 15 blocks. Each trader can link to one container, and there is no per-player shop limit.</p></div></li>
+            <li><span class="step-number">03</span><div><h3>Stock items and set the trade</h3><p>Put the items you want to sell into the linked container. Shift-right-click your trader to open the editor. Set the Result (what the customer receives), Cost 1 (the required payment), and optional Cost 2. Click item stacks to adjust trade quantities, up to 64. You need at least one item for each trade slot you configure.</p></div></li>
+          </ol>
+          <div class="shop-gallery">
+            <figure class="wiki-card shop-shot">
+              <a href="Pictures/container.png" target="_blank"><img src="Pictures/container.png" alt="Container stocked with items for a Shopkeeper" width="352" height="167" loading="lazy"></a>
+              <figcaption><span>01 · STOCK THE SHOP</span><strong>Put your sale items in the linked container.</strong></figcaption>
+            </figure>
+            <figure class="wiki-card shop-shot">
+              <a href="Pictures/shopkeepereditgui.png" target="_blank"><img src="Pictures/shopkeepereditgui.png" alt="Shopkeeper editor showing Result, Cost 1, and optional Cost 2" width="352" height="214" loading="lazy"></a>
+              <figcaption><span>02 · SET THE TRADE</span><strong>Choose the result and the items customers pay.</strong></figcaption>
+            </figure>
+            <figure class="wiki-card shop-shot">
+              <a href="Pictures/result.png" target="_blank"><img src="Pictures/result.png" alt="Player-facing Shopkeeper trade preview" width="552" height="332" loading="lazy"></a>
+              <figcaption><span>03 · CHECK THE PREVIEW</span><strong>Confirm how your finished trade looks to players.</strong></figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="wiki-section" id="rules">
+          <div class="wiki-section-head">
+            <div><div class="eyebrow">THE OFFICIAL RULES</div><h2>Minecraft server rules</h2></div>
+            <p>These are the official DiceSMP rules. Please read them before playing.</p>
+          </div>
+          <div class="rule-penalty">
+            <span class="penalty-mark" aria-hidden="true">!</span>
+            <p><strong>Immediate IP ban:</strong> Breaking any rule below results in an automatic IP ban. The server uses automated logging, and the owner states there are no exceptions or warnings.</p>
+          </div>
+          <div class="official-rule-groups">
+            <article class="wiki-card official-rule-group">
+              <div class="rule-group-heading"><span>01</span><div><h3>Server &amp; community</h3><p>Help keep the community kind, friendly, and peaceful.</p></div></div>
+              <ul>
+                <li><strong>Respect each other.</strong> Treat all players with kindness. Bullying, harassment, and toxic behavior are not tolerated.</li>
+                <li><strong>No below-the-belt jokes.</strong> Keep chat friendly. Offensive, highly personal, or deeply hurtful jokes are prohibited.</li>
+                <li><strong>No drama.</strong> Keep personal arguments out of global chat so the community stays peaceful and fun.</li>
+              </ul>
+            </article>
+            <article class="wiki-card official-rule-group">
+              <div class="rule-group-heading"><span>02</span><div><h3>In-game gameplay</h3><p>Play fairly and don’t use traps or exploits against other players.</p></div></div>
+              <ul>
+                <li><strong>No cheating.</strong> Modded clients, X-ray packs, hacked clients, and unapproved third-party modifications are forbidden.</li>
+                <li><strong>No duping.</strong> Do not exploit game mechanics or glitches to duplicate items, blocks, or currency.</li>
+                <li><strong>No spam killing.</strong> Do not repeatedly kill the same player to ruin their experience or farm them.</li>
+                <li><strong>No TP trapping.</strong> Do not set traps that instantly kill players who accept a teleport request using <code>/tpa</code>.</li>
+                <li><strong>No AngelChest trapping.</strong> Do not trap another player’s AngelChest or build around or underneath it to steal their gear or kill them when they retrieve it.</li>
+                <li><strong>No pWarp voids.</strong> Do not set a player warp with <code>/pwarp</code> that sends players directly into the void, lava, or a fatal drop.</li>
+              </ul>
+            </article>
+            <article class="wiki-card official-rule-group">
+              <div class="rule-group-heading"><span>03</span><div><h3>Performance &amp; farm restrictions</h3><p>Build responsibly and protect server performance.</p></div></div>
+              <ul>
+                <li><strong>No overpowered farms.</strong> Massive, unrestricted automated farms that consume excessive server resources are not allowed.</li>
+                <li><strong>No iron farms.</strong> Traditional and villager-based iron golem farms are prohibited.</li>
+                <li><strong>No lag machines.</strong> Redstone loops, entity crammers, or other contraptions designed to reduce server TPS are prohibited and result in a permanent ban.</li>
+              </ul>
+            </article>
+          </div>
+          <p class="wiki-note official-rules-note">For reports, concerns, or questions, open a ticket in the <a href="https://dsc.gg/dicesmp" target="_blank" rel="noopener noreferrer">DiceSMP Discord ↗</a>.</p>
+        </section>
+
+        <section class="wiki-section" id="world-guide">
+          <div class="wiki-section-head">
+            <div><div class="eyebrow">EXPLORE, BUILD, MAKE IT HOME</div><h2>World &amp; claims</h2></div>
+            <p>Know where to build, how protection works, and which worlds support claims.</p>
+          </div>
+          <div class="wiki-card world-guide-card">
+            <article><span class="world-guide-icon" aria-hidden="true">▦</span><div><h3>Overworld</h3><p>Use <code>/rtp</code> for a random destination up to 30,000 blocks from spawn. Land claims are enabled here.</p></div></article>
+            <article><span class="world-guide-icon" aria-hidden="true">♨</span><div><h3>Nether</h3><p>Open exploration. Land claims are disabled, so watch your builds and your inventory.</p></div></article>
+            <article><span class="world-guide-icon" aria-hidden="true">◉</span><div><h3>End</h3><p>Open exploration. Land claims are disabled; bring what you need and leave nothing valuable unattended.</p></div></article>
+            <article><span class="world-guide-icon" aria-hidden="true">⌂</span><div><h3>Your claims</h3><p>Protect land with a golden shovel. You can own 4 claims. Claim blocks start at 100, accrue at 100 per hour, cap at 80,000, and can be bought with vote points. Unused claims expire after 14 days; all claims expire after 60 inactive days, with an exception for large balances.</p></div></article>
+          </div>
+        </section>
+
+        <section class="wiki-section" id="faq">
+          <div class="wiki-section-head">
+            <div><div class="eyebrow">QUICK ANSWERS</div><h2>Frequently asked questions</h2></div>
+            <p>Still stuck? The Discord ticket team can help.</p>
+          </div>
+          <div class="faq-list">
+            <details class="wiki-card faq-item"><summary>Can Java and Bedrock players play together?<span class="guide-plus" aria-hidden="true">+</span></summary><p>Yes. Join <code>play.dicesmp.online</code>. Bedrock uses port <code>12011</code>. Server mechanics are based on Java Edition.</p></details>
+            <details class="wiki-card faq-item"><summary>How many claims and homes can I have?<span class="guide-plus" aria-hidden="true">+</span></summary><p>You can own up to 4 separate land claims in the Overworld. Homes start at 3 and increase with rank: Copper 4, Gold 6, and Emerald 9.</p></details>
+            <details class="wiki-card faq-item"><summary>Do the Nether and End have land claims?<span class="guide-plus" aria-hidden="true">+</span></summary><p>No. GriefPrevention claims are enabled in the Overworld only. The Nether and End are open exploration without land claims.</p></details>
+            <details class="wiki-card faq-item"><summary>How do I rank up?<span class="guide-plus" aria-hidden="true">+</span></summary><p>Open <code>/rankup</code> in game and meet the lifetime ore, vote, and player-kill requirements for your next rank. The path runs from Coal to Netherite and also unlocks more homes and kits.</p></details>
+            <details class="wiki-card faq-item"><summary>What do I get for voting?<span class="guide-plus" aria-hidden="true">+</span></summary><p>Each vote gives 1 vote point and 1 Vote Crate key. Spend 5 points for 100 claim blocks in <code>/voteshop</code>, then use your keys at <code>/warp crates</code>.</p></details>
+            <details class="wiki-card faq-item"><summary>Does AngelChest keep my experience?<span class="guide-plus" aria-hidden="true">+</span></summary><p>Yes. AngelChest stores your items and collects your experience. A chest lasts 10,000 seconds, and you can have up to 5 at once.</p></details>
+            <details class="wiki-card faq-item"><summary>How do I report a player or a server problem?<span class="guide-plus" aria-hidden="true">+</span></summary><p>Open a ticket in the DiceSMP Discord for reports, concerns, bugs, or suggestions.</p></details>
+            <details class="wiki-card faq-item"><summary>What if I died because of a server issue?<span class="guide-plus" aria-hidden="true">+</span></summary><p>Contact staff through a Discord ticket. Staff can restore items when the death was caused by a server issue, not player error.</p></details>
+          </div>
+        </section>
+
+        <section class="wiki-help">
+          <span class="help-die" aria-hidden="true">⚄</span>
+          <div><div class="eyebrow">WE’RE HERE TO HELP</div><h2>Something still unclear?</h2><p>Open a Discord ticket for reports, concerns, bugs, suggestions, or questions about the server.</p></div>
+          <a class="button button-primary" href="https://dsc.gg/dicesmp" target="_blank" rel="noopener noreferrer">Open a ticket ↗</a>
+        </section>
       </div>
     </div>
   </main>
-  <footer class="site-footer"><div class="footer-main section-wrap"><a class="brand footer-brand" href="index.html"><img src="Logo/dicesmp%20logo.jpg" alt=""><span>Dice<span class="brand-accent">SMP</span></span></a><p>Vanilla+ Minecraft.<br>No unnecessary complexity.</p><div class="footer-links"><a href="https://dsc.gg/dicesmp" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-discord" aria-hidden="true"></i> Discord ↗</a><a href="index.html#vote">Vote</a><a href="index.html#features">Features</a><a href="index.html#server-info">Server info</a><a href="wiki.html" aria-current="page">Wiki</a></div><a class="back-top" href="#top">BACK TO TOP ↑</a></div><div class="footer-bottom section-wrap"><span>© <span id="year"></span> DiceSMP</span><a class="site-credit" href="https://www.tiktok.com/@v3irix" target="_blank" rel="noopener noreferrer">Website by RipNightEye <i class="fa-brands fa-tiktok" aria-label="TikTok" role="img"></i></a></div></footer>
+
+  <footer class="site-footer">
+    <div class="footer-main section-wrap">
+      <div class="footer-brand-block">
+        <a class="brand footer-brand" href="index.html" aria-label="DiceSMP home">
+          <img src="Logo/dicesmp-logo.webp" alt="" width="40" height="40">
+          <span>Dice<span class="brand-accent">SMP</span></span>
+        </a>
+        <p>Vanilla+ Minecraft.<br>No unnecessary complexity.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="https://dsc.gg/dicesmp" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-discord"></use></svg> Discord ↗</a>
+        <a href="index.html#join">Join</a>
+        <a href="index.html#vote">Vote</a>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#server-info">Server info</a>
+        <a href="wiki.html" aria-current="page">Wiki</a>
+      </nav>
+      <a class="back-top" href="#top">BACK TO TOP ↑</a>
+    </div>
+    <div class="footer-bottom section-wrap">
+      <span>© <span id="year">2026</span> DiceSMP</span>
+      <span class="footer-legal">Not affiliated with Mojang or Microsoft.</span>
+      <a class="site-credit" href="https://www.tiktok.com/@v3irix" target="_blank" rel="noopener noreferrer">Website by RipNightEye <svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-tiktok"></use></svg></a>
+    </div>
+  </footer>
+
+  <button class="to-top" type="button" aria-label="Back to top" data-to-top>
+    <svg class="icon" aria-hidden="true"><use href="#icon-arrow-up"></use></svg>
+  </button>
+
+  <div class="toast" role="status" aria-live="polite">
+    <span class="toast-check" aria-hidden="true"><svg class="icon"><use href="#icon-check"></use></svg></span>
+    <span class="toast-text">Copied</span>
+  </div>
 </body>
 </html>
