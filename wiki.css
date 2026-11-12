@@ -38,3 +38,6 @@
 .official-rule-group li strong{color:#e2e8f0}.official-rule-group code{color:#a5f3fc;background:#38bdf812;border:1px solid #38bdf81c;border-radius:5px;padding:2px 5px}
 .official-rules-note{margin-top:18px}
 @media(max-width:620px){.official-rule-groups{grid-template-columns:1fr}.official-rule-group:last-child{grid-column:auto}.official-rule-group{padding:17px}.rule-penalty{padding:15px;grid-template-columns:34px 1fr}.rule-penalty p{font-size:12px}}
+.command-card-wide{grid-column:1/-1}
+.world-guide-card a{color:#67e8f9;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:620px){.command-card-wide{grid-column:auto}}
