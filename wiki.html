@@ -88,6 +88,11 @@
       },
       {
         "@type": "Question",
+        "name": "How do I claim land?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Hold a golden shovel, left-click one corner of the area, then right-click the opposite corner. Claims cost claim blocks equal to their area, and new players start with 100. Manage them with /claimslist and /abandonclaim, and use /trust <player> to share access. This works in the Overworld only." }
+      },
+      {
+        "@type": "Question",
         "name": "Do the Nether and End have land claims?",
         "acceptedAnswer": { "@type": "Answer", "text": "No. GriefPrevention claims are enabled in the Overworld only. The Nether and End are open exploration without land claims." }
       },
@@ -190,7 +195,7 @@
         <a class="button button-glass" href="https://dsc.gg/dicesmp" target="_blank" rel="noopener noreferrer">Need a hand? <svg class="icon" aria-hidden="true"><use href="#icon-discord"></use></svg> Join Discord</a>
       </div>
       <div class="wiki-quick-links">
-        <a href="#commands">Commands</a><a href="#features-guide">Features</a><a href="#ranks">Ranks</a><a href="#rules">Rules</a><a href="#world-guide">World &amp; claims</a><a href="#faq">FAQs</a>
+        <a href="#commands">Commands</a><a href="#features-guide">Features</a><a href="#ranks">Ranks</a><a href="#claim-land">Claim land</a><a href="#rules">Rules</a><a href="#world-guide">World &amp; claims</a><a href="#faq">FAQs</a>
       </div>
     </section>
 
@@ -204,6 +209,7 @@
         <a href="#shopkeepers">Shopkeepers</a>
         <a href="#rules">Community rules</a>
         <a href="#world-guide">World &amp; claims</a>
+        <a href="#claim-land">How to claim land</a>
         <a href="#faq">FAQs</a>
         <a class="toc-support" href="https://dsc.gg/dicesmp" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-discord"></use></svg> Discord support ↗</a>
       </aside>
@@ -289,6 +295,16 @@
               <div class="command-row"><code>[i] · [item]</code><span>Show the item you’re holding in chat.</span></div>
               <div class="command-row"><code>[inv] · [ender]</code><span>Share your inventory or Ender Chest in chat.</span></div>
               <div class="command-row"><code>[ping]</code><span>Show your ping. Java only; this chat tag doesn’t work on Bedrock.</span></div>
+            </article>
+            <article class="wiki-card command-card command-card-wide">
+              <span class="command-group">CLAIMS &amp; PROTECTION</span>
+              <div class="command-row"><code>/claimslist</code><span>List your claims, their coordinates, and your claim-block balance.</span></div>
+              <div class="command-row"><code>/abandonclaim</code><span>Delete the claim you’re standing in and free its claim blocks.</span></div>
+              <div class="command-row"><code>/trust &lt;player&gt;</code><span>Full build-and-break access in the claim you’re standing in.</span></div>
+              <div class="command-row"><code>/containertrust &lt;player&gt;</code><span>Use containers, crafting blocks, and animals in your claim.</span></div>
+              <div class="command-row"><code>/accesstrust &lt;player&gt;</code><span>Use buttons, levers, and beds only.</span></div>
+              <div class="command-row"><code>/trustlist</code><span>See who has access to the claim you’re standing in.</span></div>
+              <div class="command-row"><code>/untrust &lt;player&gt;</code><span>Remove a player’s access again.</span></div>
             </article>
           </div>
           <p class="wiki-note">Player warps are limited to 3 per player. They have a 3-second delay, a 10-second cooldown, and cancel if you move. Use <code>/warps</code> to browse them.</p>
@@ -456,8 +472,22 @@
             <article><span class="world-guide-icon" aria-hidden="true">▦</span><div><h3>Overworld</h3><p>Use <code>/rtp</code> for a random destination up to 30,000 blocks from spawn. Land claims are enabled here.</p></div></article>
             <article><span class="world-guide-icon" aria-hidden="true">♨</span><div><h3>Nether</h3><p>Open exploration. Land claims are disabled, so watch your builds and your inventory.</p></div></article>
             <article><span class="world-guide-icon" aria-hidden="true">◉</span><div><h3>End</h3><p>Open exploration. Land claims are disabled; bring what you need and leave nothing valuable unattended.</p></div></article>
-            <article><span class="world-guide-icon" aria-hidden="true">⌂</span><div><h3>Your claims</h3><p>Protect land with a golden shovel. You can own 4 claims. Claim blocks start at 100, accrue at 100 per hour, cap at 80,000, and can be bought with vote points. Unused claims expire after 14 days; all claims expire after 60 inactive days, with an exception for large balances.</p></div></article>
+            <article><span class="world-guide-icon" aria-hidden="true">⌂</span><div><h3>Your claims</h3><p>Protect land with a golden shovel. You can own 4 claims. Claim blocks start at 100, accrue at 100 per hour, cap at 80,000, and can be bought with vote points. Unused claims expire after 14 days; all claims expire after 60 inactive days, with an exception for large balances. See <a href="#claim-land">how to claim land</a> for the steps.</p></div></article>
           </div>
+        </section>
+
+        <section class="wiki-section" id="claim-land">
+          <div class="wiki-section-head">
+            <div><div class="eyebrow">GOLDEN SHOVEL, TWO CLICKS</div><h2>How to claim land</h2></div>
+            <p>Mark your base so only you and the players you trust can build there.</p>
+          </div>
+          <ol class="shop-steps">
+            <li><span class="step-number">01</span><div><h3>Hold a golden shovel</h3><p>Land claims are marked with a golden shovel. If you don’t have one, craft it with 3 gold ingots and 2 sticks. While claiming, the shovel marks corners instead of digging.</p></div></li>
+            <li><span class="step-number">02</span><div><h3>Click two opposite corners</h3><p>Left-click (punch) one corner of the area you want to protect, then right-click the opposite corner. The claim is created as soon as you place the second corner. Pick corners diagonally across from each other so the claim covers the whole base.</p></div></li>
+            <li><span class="step-number">03</span><div><h3>Spend claim blocks</h3><p>Each claim costs claim blocks equal to its area, so a 10×10 claim uses 100 blocks. New players start with 100 claim blocks, earn 100 per hour played up to 80,000, and can buy 100 more for 5 vote points in <code>/voteshop</code>.</p></div></li>
+            <li><span class="step-number">04</span><div><h3>Trust your friends</h3><p>Use <code>/trust &lt;player&gt;</code> for full build access, <code>/containertrust &lt;player&gt;</code> for containers and animals, or <code>/accesstrust &lt;player&gt;</code> for buttons, levers, and beds. <code>/trustlist</code> shows who has access where you stand, and <code>/untrust &lt;player&gt;</code> removes it again.</p></div></li>
+          </ol>
+          <p class="wiki-note">Overworld only. You can own up to 4 separate claims; review them with <code>/claimslist</code> and remove the one you’re standing in with <code>/abandonclaim</code>. Claims cover the land from bedrock to build limit, so your builds are protected above and below. Unused claims expire after 14 days, and all claims expire after 60 inactive days except for players with a large claim-block balance.</p>
         </section>
 
         <section class="wiki-section" id="faq">
@@ -468,6 +498,7 @@
           <div class="faq-list">
             <details class="wiki-card faq-item"><summary>Can Java and Bedrock players play together?<span class="guide-plus" aria-hidden="true">+</span></summary><p>Yes. Join <code>play.dicesmp.online</code>. Bedrock uses port <code>12011</code>. Server mechanics are based on Java Edition.</p></details>
             <details class="wiki-card faq-item"><summary>How many claims and homes can I have?<span class="guide-plus" aria-hidden="true">+</span></summary><p>You can own up to 4 separate land claims in the Overworld. Homes start at 3 and increase with rank: Copper 4, Gold 6, and Emerald 9.</p></details>
+            <details class="wiki-card faq-item"><summary>How do I claim land?<span class="guide-plus" aria-hidden="true">+</span></summary><p>Hold a golden shovel, left-click one corner of the area, then right-click the opposite corner. Claims cost claim blocks equal to their area, and new players start with 100. Manage them with <code>/claimslist</code> and <code>/abandonclaim</code>, and use <code>/trust &lt;player&gt;</code> to share access. This works in the Overworld only.</p></details>
             <details class="wiki-card faq-item"><summary>Do the Nether and End have land claims?<span class="guide-plus" aria-hidden="true">+</span></summary><p>No. GriefPrevention claims are enabled in the Overworld only. The Nether and End are open exploration without land claims.</p></details>
             <details class="wiki-card faq-item"><summary>How do I rank up?<span class="guide-plus" aria-hidden="true">+</span></summary><p>Open <code>/rankup</code> in game and meet the lifetime ore, vote, and player-kill requirements for your next rank. The path runs from Coal to Netherite and also unlocks more homes and kits.</p></details>
             <details class="wiki-card faq-item"><summary>What do I get for voting?<span class="guide-plus" aria-hidden="true">+</span></summary><p>Each vote gives 1 vote point and 1 Vote Crate key. Spend 5 points for 100 claim blocks in <code>/voteshop</code>, then use your keys at <code>/warp crates</code>.</p></details>
