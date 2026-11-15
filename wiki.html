@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b1020">
   <meta name="color-scheme" content="dark">
-  <meta name="description" content="The DiceSMP player guide: commands, ranks, land claims, shopkeepers, death chests, voting, server rules, and answers to common questions.">
+  <meta name="description" content="The DiceSMP player guide: commands, ranks, land claims, shopkeepers, diamonds and banking, marriage, ClanWar, PvP, trails, voting, rules, and common questions.">
   <meta name="author" content="DiceSMP">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Player Guide — DiceSMP Wiki | Commands, Ranks &amp; Rules</title>
@@ -13,7 +13,7 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="DiceSMP">
   <meta property="og:title" content="DiceSMP Player Guide — Commands, Claims &amp; Rules">
-  <meta property="og:description" content="Everything you need to settle into DiceSMP: commands, ranks, claims, shopkeepers, rules, and quick answers.">
+  <meta property="og:description" content="Everything you need to settle into DiceSMP: commands, ranks, claims, shopkeepers, the diamond economy, marriage, ClanWar, PvP, rules, and quick answers.">
   <meta property="og:locale" content="en_US">
   <meta property="og:url" content="https://web.dicesmp.online/wiki">
   <meta property="og:image" content="https://web.dicesmp.online/Logo/dicesmp-banner.jpg">
@@ -113,6 +113,26 @@
       },
       {
         "@type": "Question",
+        "name": "What is the Pinata Party?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Every 50 votes, a pinata spawns at /warp pinata after a 5-second countdown. Hit it for a chance at copper, iron, gold, diamonds, netherite scrap, or a very rare mace." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I change my chat color?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Open /color to pick a solid color, gradient, or pattern for your chat messages. Use /color reset to clear it." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do trails, pets, and poses work?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Open /trails for cosmetic trails. Use /sit, /lay, or /crawl to change pose, and sneak to stand. /givepet <player> offers a tamed pet; the other player uses /acceptpet." }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if I log out during combat?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A 15-second combat tag blocks teleports and most commands. Logging out while tagged counts as a death and drops your inventory, experience, and armor." }
+      },
+      {
+        "@type": "Question",
         "name": "How do I report a player or a server problem?",
         "acceptedAnswer": { "@type": "Answer", "text": "Open a ticket in the DiceSMP Discord for reports, concerns, bugs, or suggestions." }
       },
@@ -120,6 +140,46 @@
         "@type": "Question",
         "name": "What if I died because of a server issue?",
         "acceptedAnswer": { "@type": "Answer", "text": "Contact staff through a Discord ticket. Staff can restore items when the death was caused by a server issue, not player error." }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the diamond bank work?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Run /bank to open your personal diamond bank. Deposit diamonds from your inventory, withdraw them again, or check your balance. The bank keeps them separately from your inventory, and monthly balances appear on the spawn leaderboards." }
+      },
+      {
+        "@type": "Question",
+        "name": "How does CoinFlip work?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Run /coinflip to open the menu, or /coinflip create <diamonds> to start a wager. Your diamonds are held in escrow while you pick heads or tails; the winner takes the pot." }
+      },
+      {
+        "@type": "Question",
+        "name": "What do the spawn shops sell?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Admin shopkeepers near spawn trade 64 crops for 10 iron ingots, 64 iron ingots for 10 diamonds, and 64 crops for a 100-claim-block voucher. They also sell books, paper, gunpowder, ender pearls, TNT, totems, wind charges, ominous bottles, emeralds, and nether stars for gold, copper, diamonds, or netherite." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I get married in-game?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Use /propose <player> and have them accept with /accept <player>. Proposals last 24 hours and can be sent while the other player is offline. Married players show a partner suffix; /divorce asks for confirmation within 30 seconds. The fake ban message after marrying is a developer joke, not a real punishment." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is ClanWar?",
+        "acceptedAnswer": { "@type": "Answer", "text": "/warp clanwar takes you to the match area. Each team holds up to 5 players, and a 60-second preparation phase starts the match. Players vote on one of four kits for 30 seconds, and the vote ends early if everyone agrees. Friendly fire is off, disconnecting or leaving eliminates you, and players not in the match can watch with /clanwar spectate." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the PvP world?",
+        "acceptedAnswer": { "@type": "Answer", "text": "/warp pvp takes you to the PvP world. The spawn safezone there blocks PvP; once you leave it, you are in survival and can be attacked. Your inventory is shared with the other worlds, spawn eggs cannot be used there, and there are no land claims." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is in a Vote Crate?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Vote Crate keys come from the five vote sites, one key per site every 24 hours. Open crates at /warp crates or /warp votecrate. Iron gear and food are the common pulls; iron ingots, diamonds, and a Shopkeeper are the rare pulls." }
+      },
+      {
+        "@type": "Question",
+        "name": "Which Minecraft version should I use?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Java players should use 1.21.11 and Bedrock players the latest version. ViaVersion and ViaBackwards let other client versions join, but custom items and textures may look wrong on older or newer versions." }
       }
     ]
   }
@@ -196,7 +256,7 @@
         <a class="button button-glass" href="https://dsc.gg/dicesmp" target="_blank" rel="noopener noreferrer">Need a hand? <svg class="icon" aria-hidden="true"><use href="#icon-discord"></use></svg> Join Discord</a>
       </div>
       <div class="wiki-quick-links">
-        <a href="#commands">Commands</a><a href="#features-guide">Features</a><a href="#ranks">Ranks</a><a href="#claim-land">Claim land</a><a href="#rules">Rules</a><a href="#world-guide">World &amp; claims</a><a href="#faq">FAQs</a>
+        <a href="#commands">Commands</a><a href="#features-guide">Features</a><a href="#economy-guide">Economy</a><a href="#pvp-guide">PvP</a><a href="#ranks">Ranks</a><a href="#claim-land">Claim land</a><a href="#rules">Rules</a><a href="#world-guide">World &amp; claims</a><a href="#faq">FAQs</a>
       </div>
     </section>
 
@@ -206,11 +266,14 @@
         <a href="#getting-started">Getting started</a>
         <a href="#commands">Commands</a>
         <a href="#features-guide">Server features</a>
+        <a href="#economy-guide">Economy &amp; marriage</a>
+        <a href="#pvp-guide">PvP &amp; ClanWar</a>
         <a href="#ranks">Rank progression</a>
         <a href="#shopkeepers">Shopkeepers</a>
         <a href="#rules">Community rules</a>
         <a href="#world-guide">World &amp; claims</a>
         <a href="#claim-land">How to claim land</a>
+        <a href="#troubleshooting">Troubleshooting</a>
         <a href="#faq">FAQs</a>
         <a class="toc-support" href="https://dsc.gg/dicesmp" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-discord"></use></svg> Discord support ↗</a>
       </aside>
@@ -292,6 +355,7 @@
               <div class="command-row"><code>/rankup</code><span>Open the rank menu and check your next milestone.</span></div>
               <div class="command-row"><code>/bank</code><span>Deposit, withdraw, or check your banked diamonds.</span></div>
               <div class="command-row"><code>/discord link</code><span>Link your Minecraft account to Discord.</span></div>
+              <div class="command-row"><code>/website</code><span>Get a clickable link to this website in chat.</span></div>
               <div class="command-row"><code>/actp</code><span>Teleport to one of your AngelChests.</span></div>
               <div class="command-row"><code>[i] · [item]</code><span>Show the item you’re holding in chat.</span></div>
               <div class="command-row"><code>[inv] · [ender]</code><span>Share your inventory or Ender Chest in chat.</span></div>
@@ -306,6 +370,32 @@
               <div class="command-row"><code>/accesstrust &lt;player&gt;</code><span>Use buttons, levers, and beds only.</span></div>
               <div class="command-row"><code>/trustlist</code><span>See who has access to the claim you’re standing in.</span></div>
               <div class="command-row"><code>/untrust &lt;player&gt;</code><span>Remove a player’s access again.</span></div>
+            </article>
+            <article class="wiki-card command-card command-card-wide">
+              <span class="command-group">POSES, TRAILS &amp; PETS</span>
+              <div class="command-row"><code>/sit</code><span>Sit where you stand. You can also right-click stairs, slabs, or carpets with an empty hand.</span></div>
+              <div class="command-row"><code>/lay</code> · <code>/crawl</code><span>Lie down or crawl. Sneak to stand back up.</span></div>
+              <div class="command-row"><code>/trails</code><span>Open the trail menu for particle, block, rain, and wing effects.</span></div>
+              <div class="command-row"><code>/color</code><span>Open the chat color picker for solid colors, gradients, and patterns.</span></div>
+              <div class="command-row"><code>/givepet &lt;player&gt;</code><span>Offer a tamed pet to another player. They accept with /acceptpet or decline with /declinepet.</span></div>
+            </article>
+            <article class="wiki-card command-card">
+              <span class="command-group">ECONOMY &amp; MARRIAGE</span>
+              <div class="command-row"><code>/bank</code><span>Open your diamond bank. Chat shortcuts: /bank deposit &lt;amount&gt;, /bank withdraw &lt;amount&gt;, or /bank balance.</span></div>
+              <div class="command-row"><code>/coinflip</code><span>Open the CoinFlip menu, or start a wager with /coinflip create &lt;diamonds&gt;.</span></div>
+              <div class="command-row"><code>/propose &lt;player&gt;</code><span>Send a marriage proposal. It stays valid for 24 hours, even if they are offline.</span></div>
+              <div class="command-row"><code>/accept &lt;player&gt;</code><span>Accept that player’s pending marriage proposal.</span></div>
+              <div class="command-row"><code>/marriage</code><span>View your marriage info, or check pending proposals with <code>/marriage proposals</code>.</span></div>
+              <div class="command-row"><code>/divorce</code><span>Start a divorce. Confirm with <code>/divorce confirm</code> within 30 seconds.</span></div>
+            </article>
+            <article class="wiki-card command-card">
+              <span class="command-group">PVP &amp; CLANWAR</span>
+              <div class="command-row"><code>/warp pvp</code><span>Travel to the PvP world, where leaving the spawn safezone flags you for PvP.</span></div>
+              <div class="command-row"><code>/warp clanwar</code><span>Travel to the ClanWar arena and match area.</span></div>
+              <div class="command-row"><code>/clanwar info</code><span>See the current match state, teams, and available kits.</span></div>
+              <div class="command-row"><code>/clanwar leave</code><span>Forfeit a match and become a spectator. Locked during preparation.</span></div>
+              <div class="command-row"><code>/clanwar spectate</code><span>Watch a running match if you are not on a team.</span></div>
+              <div class="command-row"><code>/newbie disable</code><span>End your 10-minute new-player PvP protection early.</span></div>
             </article>
           </div>
           <p class="wiki-note">Player warps are limited to 3 per player. They have a 3-second delay, a 10-second cooldown, and cancel if you move. Use <code>/warps</code> to browse them.</p>
@@ -323,19 +413,31 @@
             </details>
             <details class="wiki-card guide-card">
               <summary><span class="guide-icon" aria-hidden="true">♧</span><span><strong>Teams</strong><small>Build and adventure together</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
-              <div class="guide-body"><p>Teams start at 10 players, 10 team chests, and 1 team warp. Upgrading to level 2 costs 20 score and raises the limits to 20 players, 20 chests, and 2 warps. ClanWar adds organized 5v5 matches with a 60-second preparation phase, a 30-second kit vote, and spectator mode.</p></div>
+              <div class="guide-body"><p>Teams start at 10 players, 10 team chests, and 1 team warp. Level 2 costs 20 score and raises the limits to 20 players, 20 chests, and 2 warps; level 3 costs 40 score and allows 30 players, 25 chests, and 3 warps. Player kills add team score, and teams can set a home and respawn at their team anchor. The PvP &amp; ClanWar section covers match rules and team scoring in detail.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">⚔</span><span><strong>Combat &amp; newbie protection</strong><small>Know when you’re tagged</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>Attacking or being attacked starts a 15-second combat tag, shown in your action bar and a boss bar. While tagged, teleports and most commands are blocked; logging out counts as dying and drops your inventory, experience, and armor. New players get 10 minutes of PvP protection and can end it early with <code>/newbie disable</code>. Killing the same player more than five times within 20 minutes can trigger a kick for kill abuse.</p></div>
             </details>
             <details class="wiki-card guide-card">
               <summary><span class="guide-icon" aria-hidden="true">✦</span><span><strong>Chests &amp; trading</strong><small>Organize, stock, and sell</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
-              <div class="guide-body"><p>Shopkeepers let you set up item-for-item trades using a hired Wandering Trader and a linked container. Hiring costs 32 emeralds, each trader links to one container within 15 blocks, and there is no per-player shop limit. See the illustrated setup below.</p></div>
+              <div class="guide-body"><p>Shopkeepers let you set up item-for-item trades using a hired Wandering Trader and a linked container. Hiring costs 32 emeralds, each trader links to one container within 15 blocks, and there is no per-player shop limit. Some shopkeepers also sell vouchers; right-click one to add 100 claim blocks. See the illustrated setup below.</p></div>
             </details>
             <details class="wiki-card guide-card">
               <summary><span class="guide-icon" aria-hidden="true">⚄</span><span><strong>Diamonds, votes &amp; rewards</strong><small>Support the server and earn rewards</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
-              <div class="guide-body"><p>Diamonds are used for player trading, the CoinFlip game, and the diamond bank. Each vote gives 1 vote point and 1 Vote Crate key—not a diamond. Spend 5 points for 100 claim blocks in <code>/voteshop</code>, then open your Vote Crates at <code>/warp crates</code>; their 15 rewards include iron gear, food, diamonds, and a Shopkeeper. ChatGames award a base 1 diamond, with a chance at bonus diamonds.</p></div>
+              <div class="guide-body"><p>Diamonds are used for player trading, the CoinFlip game, and the diamond bank. Each vote gives 1 vote point and 1 Vote Crate key—not a diamond. Vote once every 24 hours on each of five sites: MinecraftServers.org, Minecraft.Buzz, Minecraft-MP.com, Minerank, and minecraft-serverlist.com. Spend 5 points for 100 claim blocks in <code>/voteshop</code>, then open your Vote Crates at <code>/warp crates</code>; their 15 rewards include iron gear, food, diamonds, and a Shopkeeper. Votes also fill the shared Pinata meter—see the Pinata Party card below. ChatGames run every 5–10 minutes with 120-second rounds: a win pays 1 diamond, with a 50% chance of 1 extra and a 5% chance of 10 extra.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">✹</span><span><strong>Pinata Party</strong><small>Vote together, break it open</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>Votes also count toward a shared Pinata meter. Every 50 votes, a pinata spawns at <code>/warp pinata</code> after a 5-second countdown. Hit it to earn a roll at these drops—each one rolls independently, so a single hit can bring more than one:</p><ul class="reward-odds"><li><strong>50%</strong><span>Copper block</span></li><li><strong>35%</strong><span>Iron ingot</span></li><li><strong>20%</strong><span>Gold ingot</span></li><li><strong>10%</strong><span>Diamond</span></li><li><strong>5%</strong><span>Netherite scrap</span></li><li><strong>0.3%</strong><span>Mace</span></li></ul></div>
             </details>
             <details class="wiki-card guide-card">
               <summary><span class="guide-icon" aria-hidden="true">☁</span><span><strong>Player warps &amp; teleporting</strong><small>Meet up with other players</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
-              <div class="guide-body"><p>Essentials handles <code>/home</code>, <code>/tpa</code>, and <code>/tpahere</code>. Homes start at 3 and increase with rank up to 9. Player warps are public destinations: each player can create up to 3 with <code>/setwarp</code> and remove them with <code>/delwarp</code>. Browse them with <code>/warps</code>; warps have a 3-second delay, a 10-second cooldown, and cancel if you move.</p></div>
+              <div class="guide-body"><p>Essentials handles <code>/home</code>, <code>/tpa</code>, and <code>/tpahere</code>. Homes start at 3 and increase with rank up to 9. Teleport requests expire after 120 seconds, and you can have at most 3 pending at once. Player warps are public destinations: each player can create up to 3 with <code>/setwarp</code> and remove them with <code>/delwarp</code>. Browse them with <code>/warps</code>; warps have a 3-second delay, a 10-second cooldown, and cancel if you move.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">➤</span><span><strong>Server warps</strong><small>Where everything is</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>Server-run warps cover the main services: <code>/warp shop</code> for the admin shops, <code>/warp crates</code> and <code>/warp votecrate</code> for crates, <code>/warp afk</code> for AFK rewards, <code>/warp pinata</code> for Pinata Parties, <code>/warp leaderboards</code> for the spawn boards, <code>/warp clanwar</code> for matches, and <code>/warp pvp</code> for the PvP arena. Use <code>/warps</code> to browse every public destination, including player-made warps.</p></div>
             </details>
             <details class="wiki-card guide-card">
               <summary><span class="guide-icon" aria-hidden="true">☾</span><span><strong>Death chests &amp; recovery</strong><small>Know what is and isn’t saved</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
@@ -350,6 +452,14 @@
               <div class="guide-body"><p>DiscordSRV syncs in-game chat with Discord; use <code>/discord link</code> to connect your account. InteractiveChat supports item, inventory, Ender Chest, and ping tags in chat; its Discord add-on brings supported previews to Discord too. Voice chat is Java-only. ItemsAdder adds custom textures, items, and cosmetics — <a href="/cosmetics">browse the full cosmetics gallery</a>.</p></div>
             </details>
             <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">❈</span><span><strong>Trails, pets &amp; poses</strong><small>A little personality</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>Open <code>/trails</code> for particle, block, rain, and wing trails; they hide for 30 seconds when you enter combat. GivePet lets you offer a tamed pet with <code>/givepet &lt;player&gt;</code>, and the recipient confirms with <code>/acceptpet</code>. For downtime, <code>/sit</code>, <code>/lay</code>, and <code>/crawl</code> change your pose—sneak to stand up, or right-click stairs, slabs, and carpets with an empty hand to sit.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">◐</span><span><strong>Chat colors</strong><small>Make chat yours</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p><code>/color</code> opens a picker for solid colors, gradients, and patterns that tint your chat messages. The choice is cosmetic, and you can clear it again with <code>/color reset</code>.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
               <summary><span class="guide-icon" aria-hidden="true">◇</span><span><strong>Crossplay &amp; versions</strong><small>Java and Bedrock together</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
               <div class="guide-body"><p>Geyser and Floodgate let Bedrock players join the Java server; gameplay mechanics follow Java. ViaVersion and ViaBackwards support other client versions, but items or textures may look different when your game version is older or newer than the server. For best results, Java players should use 1.21.11 and Bedrock players the latest version.</p></div>
             </details>
@@ -358,12 +468,70 @@
               <div class="guide-body"><p>Clumps combines nearby experience orbs into fewer, larger orbs to make XP collection smoother and reduce the number of entities on the ground. Simple_RTP sends you up to 30,000 blocks from spawn in the Overworld, with a 160-second cooldown and a 5-second countdown; random teleport is disabled in the Nether and End. SkinsRestorer lets players using offline-mode clients display custom skins. CoreProtect keeps activity logs for staff investigations. nLogin adds password authentication because the server runs in offline mode: Java players use in-game dialogs to create a password on first join and sign in when they return, while Bedrock players are signed in automatically through Floodgate. Balloons from DiceCustomPlugin follow your character around.</p></div>
             </details>
             <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">▥</span><span><strong>Spawn leaderboards</strong><small>See who’s on top</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>A ring of holograms around spawn shows the top 10 for monthly deaths, all-time playtime, monthly diamond bank balances, monthly player kills, team score, and monthly votes. The boards refresh every second.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
               <summary><span class="guide-icon" aria-hidden="true">✧</span><span><strong>AFK rewards</strong><small>Earn rewards while idling</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
-              <div class="guide-body"><p>Visit <code>/warp afk</code> to enter the AFK zone. Every 30 seconds you get 3 reward rolls; each roll has its own chance. <code>/afk</code> is the normal AFK toggle, not the reward zone.</p><ul class="reward-odds"><li><strong>10%</strong><span>1 Iron Ingot</span></li><li><strong>10%</strong><span>30 Claim Blocks</span></li><li><strong>80%</strong><span>Nothing</span></li></ul></div>
+              <div class="guide-body"><p>Visit <code>/warp afk</code> to enter the AFK zone. Every 5 minutes you get 3 reward rolls; each roll has its own chance. <code>/afk</code> is the normal AFK toggle, not the reward zone.</p><ul class="reward-odds"><li><strong>10%</strong><span>1 Iron Ingot</span></li><li><strong>10%</strong><span>30 Claim Blocks</span></li><li><strong>80%</strong><span>Nothing</span></li></ul></div>
             </details>
             <details class="wiki-card guide-card">
               <summary><span class="guide-icon" aria-hidden="true">⬡</span><span><strong>Server protection</strong><small>Protected by Vulcan</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
               <div class="guide-body"><p>DiceSMP is protected by Vulcan.</p></div>
+            </details>
+          </div>
+        </section>
+
+        <section class="wiki-section" id="economy-guide">
+          <div class="wiki-section-head">
+            <div><div class="eyebrow">DIAMONDS, BANKS &amp; BONDS</div><h2>Economy &amp; marriage</h2></div>
+            <p>Diamonds are the currency. Bank them, wager them, spend them at spawn, and tie the knot.</p>
+          </div>
+          <div class="guide-grid">
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">▣</span><span><strong>Diamond bank</strong><small>Keep your diamonds out of danger</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p><code>/bank</code> opens a menu with your balance and one-click deposit or withdraw options. The same actions work from chat with <code>/bank deposit &lt;amount&gt;</code>, <code>/bank withdraw &lt;amount&gt;</code>, and <code>/bank balance</code>. Banked diamonds are kept separately from your inventory, so a death does not scatter them. The bank is storage, not an investment—it pays no interest. Monthly bank balances appear on the spawn leaderboards.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">⚄</span><span><strong>CoinFlip</strong><small>Wager diamonds on a coin toss</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p><code>/coinflip</code> opens the CoinFlip menu, where you can browse open wagers or start your own with <code>/coinflip create &lt;diamonds&gt;</code>. You pick heads or tails, and both wagers sit in escrow until the flip resolves; the winner takes the pot. Only diamonds can be wagered. If the menu refuses to open, your rank may be missing the <code>dicecustomplugin.coinflip.use</code> permission—everyone has it by default.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">⇄</span><span><strong>Spawn shop: crops &amp; supplies</strong><small>Turn farm surplus into gear</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>Admin shopkeepers near spawn buy crops and sell everyday supplies. These are fixed trades, not player shops.</p><ul class="reward-odds trade-list"><li><strong>64 crops</strong><span>10 iron ingots</span></li><li><strong>64 iron ingots</strong><span>10 diamonds</span></li><li><strong>64 crops</strong><span>100 claim-block voucher</span></li><li><strong>32 gold ingots</strong><span>16 books</span></li><li><strong>32 copper ingots</strong><span>32 paper</span></li><li><strong>32 copper ingots</strong><span>32 gunpowder</span></li><li><strong>32 copper ingots</strong><span>16 ender pearls</span></li><li><strong>64 gold ingots</strong><span>32 TNT</span></li></ul><p>The iron trade accepts carrots, potatoes, beetroot, wheat, or cactus. The claim-block voucher trade accepts carrots, potatoes, wheat, or beetroot. The voucher is a separate item that looks like a gold block—right-click it to add 100 claim blocks. It is the only voucher currently sold by the spawn shops.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">✦</span><span><strong>Spawn shop: rare goods</strong><small>Spend diamonds and netherite</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>A second admin shopkeeper trades high-end materials. Bring a full stack of diamonds before you visit.</p><ul class="reward-odds trade-list"><li><strong>32 diamonds</strong><span>1 totem of undying</span></li><li><strong>32 diamonds</strong><span>64 wind charges</span></li><li><strong>64 diamonds</strong><span>10 ominous bottles</span></li><li><strong>64 diamonds</strong><span>32 emeralds</span></li><li><strong>64 netherite ingots</strong><span>1 nether star</span></li></ul><p>Ominous bottles are normally rare because trial-chamber drops are nerfed, so the shop is the reliable way to stock up for bad omen runs.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">♥</span><span><strong>Marriage</strong><small>A partner tag and a shared title</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>Marriage is a social feature: your partner’s name appears in your nameplate, tab list, and a second line under your name. Use <code>/propose &lt;player&gt;</code>; they accept with <code>/accept &lt;player&gt;</code>. Proposals stay valid for 24 hours and can be sent while the other player is offline—they see it when they next log in. <code>/marriage</code> shows your partner and marriage date, and <code>/marriage proposals</code> lists pending offers. <code>/divorce</code> starts the process and must be confirmed with <code>/divorce confirm</code> within 30 seconds. After a marriage is accepted, a fake “YOU HAVE BEEN BANNED” screen briefly kicks both players; it is a developer joke, never a real ban.</p></div>
+            </details>
+          </div>
+        </section>
+
+        <section class="wiki-section" id="pvp-guide">
+          <div class="wiki-section-head">
+            <div><div class="eyebrow">FIGHTS, TEAMS &amp; MATCHES</div><h2>PvP &amp; ClanWar</h2></div>
+            <p>Where PvP is enabled, how organized matches run, and which drop rates differ from vanilla.</p>
+          </div>
+          <div class="guide-grid">
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">⚔</span><span><strong>PvP world</strong><small>Bring only what you can lose</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p><code>/warp pvp</code> takes you to the dedicated PvP arena. The arena spawn is a safezone where PvP is denied but doors, buttons, and anvils still work. Step outside the safezone and you are in survival and can be attacked; leaving it also grants one-time fall-damage immunity for that transition. Your inventory is shared with the Overworld, Nether, and End, so leave valuables in your bank or a chest first. Spawn eggs are blocked in the arena, natural mob spawning is disabled, and land claims do not apply there. In the Overworld, standing inside a claim stops other players from damaging you. Combat tags still apply: logging out while tagged counts as a death.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">⚑</span><span><strong>ClanWar matches</strong><small>Structured team battles</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p><code>/warp clanwar</code> leads to the match arena. Each team holds up to 5 players, and the roster locks when a match starts. A 60-second preparation phase follows, during which players vote for one of four preset kits for 30 seconds. If every player votes, preparation drops to 10 seconds; you can change your vote while voting is open. Friendly fire is off, a scoreboard and tab list track the teams, and the last team standing wins (a draw is possible). Disconnecting eliminates you, while <code>/clanwar leave</code> during the fight forfeits your spot and puts you into spectator mode; leaving during preparation is locked. Players who are not on a team can watch with <code>/clanwar spectate</code>, and <code>/clanwar info</code> shows the current state. The plugin supports up to 9 kits; four are configured right now.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">♧</span><span><strong>Teams, levels &amp; anchors</strong><small>Grow from a duo to a faction</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>Teams start at level 1 with 10 member slots, 10 team chests, and 1 team warp. Level 2 costs 20 team score and raises the limits to 20 members, 20 chests, and 2 warps. Level 3 costs 40 score and allows 30 members, 25 chests, and 3 warps. Each player kill adds 1 score; deaths add nothing, and repeat kills within 60 seconds do not farm extra score. Teams can set a home, respawn at their team anchor, and ally with up to 5 other teams. Use <code>/team</code> to create, invite, and manage yours.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">◈</span><span><strong>Loot &amp; drop changes</strong><small>Vanilla, with a few tweaks</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>Two drop rates are different from vanilla. Evokers lose their totem drop 50% of the time, so a totem is a 50/50 drop. Ominous bottles are removed from 94% of the drops that would contain them, leaving only a 6% chance. Rank ore counts include coal, iron, copper, gold, redstone, lapis, diamond, emerald, nether quartz, nether gold, and ancient debris, and both normal and deepslate variants count. Ores outside that list do not advance the ore requirement in <code>/rankup</code>.</p></div>
             </details>
           </div>
         </section>
@@ -491,6 +659,35 @@
           <p class="wiki-note">Overworld only. You can own up to 4 separate claims; review them with <code>/claimslist</code> and remove the one you’re standing in with <code>/abandonclaim</code>. Claims cover the land from bedrock to build limit, so your builds are protected above and below. Unused claims expire after 14 days, and all claims expire after 60 inactive days except for players with a large claim-block balance.</p>
         </section>
 
+        <section class="wiki-section" id="troubleshooting">
+          <div class="wiki-section-head">
+            <div><div class="eyebrow">WHEN SOMETHING GOES WRONG</div><h2>Troubleshooting</h2></div>
+            <p>Quick fixes for the usual connection, login, and display problems.</p>
+          </div>
+          <div class="guide-grid">
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">⚡</span><span><strong>Can’t connect</strong><small>Address, port, and version</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>Java players join <code>play.dicesmp.online</code>; Bedrock players use the same address with port <code>12011</code>. Java is best on 1.21.11. ViaVersion and ViaBackwards allow other versions, but very old or very new clients may see missing items, textures, or UI elements. If the server is restarting, wait for the boss-bar countdown to finish and reconnect. A failed first attempt is usually a version mismatch or a typo in the address.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">⚿</span><span><strong>Login &amp; account help</strong><small>Passwords and Bedrock sign-in</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>The server runs in offline mode, so nLogin adds password protection. Java players create a password through the in-game dialog on first join and sign in when they return. Bedrock players are signed in automatically through Floodgate. Staff will never ask for your password, and you should never share it in chat or Discord. If you are locked out, open a Discord ticket instead of creating duplicate accounts.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">▤</span><span><strong>Missing textures or custom items</strong><small>Accept the resource pack</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>ItemsAdder supplies custom models and textures through the server resource pack. Accept the pack prompt when you join; without it, custom items keep their function but may look like ordinary vanilla items. If the download fails, reconnect and accept the prompt again, and make sure your client is allowed to use server resource packs. Switching game versions can also make custom content render incorrectly—try 1.21.11 on Java if something looks wrong.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">◌</span><span><strong>Voice chat &amp; Bedrock limits</strong><small>What crossplay does not carry over</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>Proximity voice chat is Java-only. Bedrock players cannot use it, and they also cannot use Java-only chat tags such as <code>[i]</code>, <code>[inv]</code>, or <code>[ping]</code>. Chat itself, claims, shops, crates, and combat work for both editions. If voice chat is silent on Java, check that the mod is installed and that your microphone is selected in its settings.</p></div>
+            </details>
+            <details class="wiki-card guide-card">
+              <summary><span class="guide-icon" aria-hidden="true">⌁</span><span><strong>Lag, bugs &amp; reports</strong><small>Get help without guessing</small></span><span class="guide-plus" aria-hidden="true">+</span></summary>
+              <div class="guide-body"><p>For lag, lower your render and simulation distance, disable heavy shaders, and check whether a restart is counting down. For a persistent problem, open a Discord ticket with the time, world, coordinates, and what you were doing. Staff can inspect CoreProtect logs for block and container changes. Report bugs and suspected cheaters privately through a ticket rather than confronting players in chat.</p></div>
+            </details>
+          </div>
+        </section>
+
         <section class="wiki-section" id="faq">
           <div class="wiki-section-head">
             <div><div class="eyebrow">QUICK ANSWERS</div><h2>Frequently asked questions</h2></div>
@@ -503,7 +700,19 @@
             <details class="wiki-card faq-item"><summary>Do the Nether and End have land claims?<span class="guide-plus" aria-hidden="true">+</span></summary><p>No. GriefPrevention claims are enabled in the Overworld only. The Nether and End are open exploration without land claims.</p></details>
             <details class="wiki-card faq-item"><summary>How do I rank up?<span class="guide-plus" aria-hidden="true">+</span></summary><p>Open <code>/rankup</code> in game and meet the lifetime ore, vote, and player-kill requirements for your next rank. The path runs from Coal to Netherite and also unlocks more homes and kits.</p></details>
             <details class="wiki-card faq-item"><summary>What do I get for voting?<span class="guide-plus" aria-hidden="true">+</span></summary><p>Each vote gives 1 vote point and 1 Vote Crate key. Spend 5 points for 100 claim blocks in <code>/voteshop</code>, then use your keys at <code>/warp crates</code>.</p></details>
+            <details class="wiki-card faq-item"><summary>How does the diamond bank work?<span class="guide-plus" aria-hidden="true">+</span></summary><p>Run <code>/bank</code> to open your personal diamond bank. Deposit diamonds from your inventory, withdraw them again, or check your balance. The bank keeps them separately from your inventory, and monthly balances appear on the spawn leaderboards.</p></details>
+            <details class="wiki-card faq-item"><summary>How does CoinFlip work?<span class="guide-plus" aria-hidden="true">+</span></summary><p>Run <code>/coinflip</code> to open the menu, or <code>/coinflip create &lt;diamonds&gt;</code> to start a wager. Your diamonds are held in escrow while you pick heads or tails; the winner takes the pot.</p></details>
+            <details class="wiki-card faq-item"><summary>What do the spawn shops sell?<span class="guide-plus" aria-hidden="true">+</span></summary><p>Admin shopkeepers near spawn trade 64 crops for 10 iron ingots, 64 iron ingots for 10 diamonds, and 64 crops for a 100-claim-block voucher. They also sell books, paper, gunpowder, ender pearls, TNT, totems, wind charges, ominous bottles, emeralds, and nether stars for gold, copper, diamonds, or netherite.</p></details>
+            <details class="wiki-card faq-item"><summary>Can I get married in-game?<span class="guide-plus" aria-hidden="true">+</span></summary><p>Yes. Use <code>/propose &lt;player&gt;</code> and have them accept with <code>/accept &lt;player&gt;</code>. Proposals last 24 hours and can be sent while the other player is offline. Married players show a partner suffix; <code>/divorce</code> asks for confirmation within 30 seconds. The fake ban message after marrying is a developer joke, not a real punishment.</p></details>
+            <details class="wiki-card faq-item"><summary>What is ClanWar?<span class="guide-plus" aria-hidden="true">+</span></summary><p><code>/warp clanwar</code> takes you to the match area. Each team holds up to 5 players, and a 60-second preparation phase starts the match. Players vote on one of four kits for 30 seconds, and the vote ends early if everyone agrees. Friendly fire is off; disconnecting or leaving eliminates you, and players not in the match can watch with <code>/clanwar spectate</code>.</p></details>
+            <details class="wiki-card faq-item"><summary>What is the PvP world?<span class="guide-plus" aria-hidden="true">+</span></summary><p><code>/warp pvp</code> takes you to the PvP arena. Its spawn safezone blocks PvP; once you leave it, you are in survival and can be attacked. Your inventory is shared with the other worlds, spawn eggs cannot be used there, and there are no land claims.</p></details>
+            <details class="wiki-card faq-item"><summary>What is in a Vote Crate?<span class="guide-plus" aria-hidden="true">+</span></summary><p>Vote Crate keys come from the five vote sites, one key per site every 24 hours. Open crates at <code>/warp crates</code> or <code>/warp votecrate</code>. Iron gear and food are the common pulls; iron ingots, diamonds, and a Shopkeeper are the rare pulls.</p></details>
+            <details class="wiki-card faq-item"><summary>Which Minecraft version should I use?<span class="guide-plus" aria-hidden="true">+</span></summary><p>Java players should use 1.21.11 and Bedrock players the latest version. ViaVersion and ViaBackwards let other client versions join, but custom items and textures may look wrong on older or newer versions.</p></details>
             <details class="wiki-card faq-item"><summary>Does AngelChest keep my experience?<span class="guide-plus" aria-hidden="true">+</span></summary><p>Yes. AngelChest stores your items and collects your experience. A chest lasts 10,000 seconds, and you can have up to 5 at once.</p></details>
+            <details class="wiki-card faq-item"><summary>What is the Pinata Party?<span class="guide-plus" aria-hidden="true">+</span></summary><p>Every 50 votes, a pinata spawns at <code>/warp pinata</code> after a 5-second countdown. Hit it for a chance at copper, iron, gold, diamonds, netherite scrap, or a very rare mace.</p></details>
+            <details class="wiki-card faq-item"><summary>Can I change my chat color?<span class="guide-plus" aria-hidden="true">+</span></summary><p>Yes. Open <code>/color</code> to pick a solid color, gradient, or pattern for your chat messages. Use <code>/color reset</code> to clear it.</p></details>
+            <details class="wiki-card faq-item"><summary>How do trails, pets, and poses work?<span class="guide-plus" aria-hidden="true">+</span></summary><p>Open <code>/trails</code> for cosmetic trails. Use <code>/sit</code>, <code>/lay</code>, or <code>/crawl</code> to change pose, and sneak to stand. <code>/givepet &lt;player&gt;</code> offers a tamed pet; the other player uses <code>/acceptpet</code>.</p></details>
+            <details class="wiki-card faq-item"><summary>What happens if I log out during combat?<span class="guide-plus" aria-hidden="true">+</span></summary><p>A 15-second combat tag blocks teleports and most commands. Logging out while tagged counts as a death and drops your inventory, experience, and armor.</p></details>
             <details class="wiki-card faq-item"><summary>How do I report a player or a server problem?<span class="guide-plus" aria-hidden="true">+</span></summary><p>Open a ticket in the DiceSMP Discord for reports, concerns, bugs, or suggestions.</p></details>
             <details class="wiki-card faq-item"><summary>What if I died because of a server issue?<span class="guide-plus" aria-hidden="true">+</span></summary><p>Contact staff through a Discord ticket. Staff can restore items when the death was caused by a server issue, not player error.</p></details>
           </div>
