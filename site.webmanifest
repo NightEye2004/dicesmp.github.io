@@ -8,8 +8,8 @@
   "lang": "en",
   "dir": "ltr",
   "display": "standalone",
-  "background_color": "#0b1020",
-  "theme_color": "#0b1020",
+  "background_color": "#170f1c",
+  "theme_color": "#170f1c",
   "icons": [
     {
       "src": "Logo/favicon.png",
