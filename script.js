@@ -122,6 +122,106 @@
   initPluginVisibility();
 
   /* ---------------------------------------------------------------------
+     Screenshot preview: images linked from a card open in an overlay here
+     instead of a separate browser tab. Escape, the close button, or a click
+     on the backdrop dismisses it.
+     --------------------------------------------------------------------- */
+  function initImageLightbox() {
+    const imageLinks = $$('a[href]').filter((link) => {
+      const path = (link.getAttribute('href') || '').split(/[?#]/)[0];
+      return Boolean($('img', link)) && /\.(?:png|jpe?g|webp|gif|avif)$/i.test(path);
+    });
+    if (!imageLinks.length) return;
+
+    const overlay = document.createElement('div');
+    overlay.className = 'lightbox';
+    overlay.hidden = true;
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Image preview');
+
+    const closeButton = document.createElement('button');
+    closeButton.type = 'button';
+    closeButton.className = 'lightbox-close';
+    closeButton.setAttribute('aria-label', 'Close image preview');
+    closeButton.textContent = '\u00d7';
+
+    const figure = document.createElement('figure');
+    figure.className = 'lightbox-figure';
+
+    const image = document.createElement('img');
+    image.className = 'lightbox-image';
+    image.decoding = 'async';
+
+    const caption = document.createElement('figcaption');
+    caption.className = 'lightbox-caption';
+    caption.hidden = true;
+
+    figure.append(image, caption);
+    overlay.append(closeButton, figure);
+    document.body.append(overlay);
+
+    let opener = null;
+
+    const open = (link) => {
+      const thumb = $('img', link);
+      const card = link.closest('figure');
+      const label = card ? $('figcaption', card) : null;
+      const kicker = label ? $('span', label) : null;
+      const title = label ? $('strong', label) : null;
+      const text = [kicker?.textContent, title?.textContent]
+        .map((part) => (part || '').replace(/\s+/g, ' ').trim())
+        .filter(Boolean)
+        .join(' — ');
+
+      image.src = link.href;
+      image.alt = thumb ? thumb.alt : '';
+      caption.textContent = text;
+      caption.hidden = !text;
+      opener = link;
+      overlay.hidden = false;
+      document.body.classList.add('lightbox-open');
+      window.requestAnimationFrame(() => overlay.classList.add('is-open'));
+      closeButton.focus({ preventScroll: true });
+    };
+
+    const close = () => {
+      if (overlay.hidden) return;
+      overlay.classList.remove('is-open');
+      overlay.hidden = true;
+      document.body.classList.remove('lightbox-open');
+      if (opener) opener.focus({ preventScroll: true });
+      opener = null;
+    };
+
+    closeButton.addEventListener('click', close);
+    overlay.addEventListener('click', (event) => {
+      if (event.target === overlay) close();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (overlay.hidden) return;
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        close();
+      } else if (event.key === 'Tab') {
+        // Keep focus on the only control inside the dialog.
+        event.preventDefault();
+        closeButton.focus({ preventScroll: true });
+      }
+    });
+
+    imageLinks.forEach((link) => {
+      link.classList.add('lightbox-link');
+      link.addEventListener('click', (event) => {
+        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        open(link);
+      });
+    });
+  }
+  initImageLightbox();
+
+  /* ---------------------------------------------------------------------
      Mobile navigation: escape, outside click, scroll lock, and focus return.
      --------------------------------------------------------------------- */
   const menuToggle = $('.menu-toggle');
