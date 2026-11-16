@@ -126,6 +126,11 @@
      instead of a separate browser tab. Escape, the close button, or a click
      on the backdrop dismisses it.
      --------------------------------------------------------------------- */
+  /* ---------------------------------------------------------------------
+     Photo viewer: linked screenshots open full screen with previous/next
+     navigation, the way a photo feed does. Escape, the close button, a
+     backdrop click, or a swipe dismisses it.
+     --------------------------------------------------------------------- */
   function initImageLightbox() {
     const imageLinks = $$('a[href]').filter((link) => {
       const path = (link.getAttribute('href') || '').split(/[?#]/)[0];
@@ -138,13 +143,37 @@
     overlay.hidden = true;
     overlay.setAttribute('role', 'dialog');
     overlay.setAttribute('aria-modal', 'true');
-    overlay.setAttribute('aria-label', 'Image preview');
+    overlay.setAttribute('aria-label', 'Photo viewer');
+
+    const topBar = document.createElement('div');
+    topBar.className = 'lightbox-top';
+
+    const counter = document.createElement('p');
+    counter.className = 'lightbox-count';
+    counter.setAttribute('aria-live', 'polite');
 
     const closeButton = document.createElement('button');
     closeButton.type = 'button';
     closeButton.className = 'lightbox-close';
-    closeButton.setAttribute('aria-label', 'Close image preview');
+    closeButton.setAttribute('aria-label', 'Close photo viewer');
     closeButton.textContent = '\u00d7';
+
+    topBar.append(counter, closeButton);
+
+    const stage = document.createElement('div');
+    stage.className = 'lightbox-stage';
+
+    const previousButton = document.createElement('button');
+    previousButton.type = 'button';
+    previousButton.className = 'lightbox-nav lightbox-prev';
+    previousButton.setAttribute('aria-label', 'Previous photo');
+    previousButton.textContent = '\u2039';
+
+    const nextButton = document.createElement('button');
+    nextButton.type = 'button';
+    nextButton.className = 'lightbox-nav lightbox-next';
+    nextButton.setAttribute('aria-label', 'Next photo');
+    nextButton.textContent = '\u203a';
 
     const figure = document.createElement('figure');
     figure.className = 'lightbox-figure';
@@ -158,12 +187,11 @@
     caption.hidden = true;
 
     figure.append(image, caption);
-    overlay.append(closeButton, figure);
+    stage.append(previousButton, figure, nextButton);
+    overlay.append(topBar, stage);
     document.body.append(overlay);
 
-    let opener = null;
-
-    const open = (link) => {
+    const describe = (link) => {
       const thumb = $('img', link);
       const card = link.closest('figure');
       const label = card ? $('figcaption', card) : null;
@@ -173,12 +201,55 @@
         .map((part) => (part || '').replace(/\s+/g, ' ').trim())
         .filter(Boolean)
         .join(' — ');
+      return { src: link.href, alt: thumb ? thumb.alt : '', text };
+    };
 
-      image.src = link.href;
-      image.alt = thumb ? thumb.alt : '';
-      caption.textContent = text;
-      caption.hidden = !text;
+    // Photos in the same gallery browse together, like one album.
+    const albumFor = (link) => {
+      const gallery = link.closest('.shop-gallery');
+      if (!gallery) return imageLinks;
+      const album = $$('a[href]', gallery).filter((item) => imageLinks.includes(item));
+      return album.length ? album : imageLinks;
+    };
+
+    let album = imageLinks;
+    let position = 0;
+    let opener = null;
+
+    const render = () => {
+      const link = album[position];
+      const info = describe(link);
+      image.src = info.src;
+      image.alt = info.alt;
+      caption.textContent = info.text;
+      caption.hidden = !info.text;
+
+      const multiple = album.length > 1;
+      previousButton.hidden = !multiple;
+      nextButton.hidden = !multiple;
+      counter.textContent = multiple ? `${position + 1} / ${album.length}` : '';
+
+      if (multiple) {
+        // Warm the neighbouring photos so paging feels instant.
+        [position - 1, position + 1].forEach((step) => {
+          const neighbour = album[(step + album.length) % album.length];
+          const preload = new Image();
+          preload.src = neighbour.href;
+        });
+      }
+    };
+
+    const show = (step) => {
+      if (album.length < 2) return;
+      position = (position + step + album.length) % album.length;
+      render();
+    };
+
+    const open = (link) => {
+      album = albumFor(link);
+      position = Math.max(0, album.indexOf(link));
       opener = link;
+      render();
       overlay.hidden = false;
       document.body.classList.add('lightbox-open');
       window.requestAnimationFrame(() => overlay.classList.add('is-open'));
@@ -194,21 +265,60 @@
       opener = null;
     };
 
+    const controls = () => [closeButton, previousButton, nextButton].filter((button) => !button.hidden);
+
+    previousButton.addEventListener('click', () => show(-1));
+    nextButton.addEventListener('click', () => show(1));
     closeButton.addEventListener('click', close);
     overlay.addEventListener('click', (event) => {
-      if (event.target === overlay) close();
+      // Anywhere outside the photo and its controls dismisses the viewer.
+      if (event.target.closest('.lightbox-figure, .lightbox-nav, .lightbox-close')) return;
+      close();
     });
+
     document.addEventListener('keydown', (event) => {
       if (overlay.hidden) return;
       if (event.key === 'Escape') {
         event.preventDefault();
         close();
-      } else if (event.key === 'Tab') {
-        // Keep focus on the only control inside the dialog.
+      } else if (event.key === 'ArrowLeft') {
         event.preventDefault();
-        closeButton.focus({ preventScroll: true });
+        show(-1);
+      } else if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        show(1);
+      } else if (event.key === 'Tab') {
+        event.preventDefault();
+        const list = controls();
+        const current = list.indexOf(document.activeElement);
+        const next = event.shiftKey
+          ? list[(current - 1 + list.length) % list.length]
+          : list[(current + 1) % list.length];
+        next.focus({ preventScroll: true });
       }
     });
+
+    // Swipe between photos on touch screens.
+    let touchStartX = null;
+    let touchStartY = null;
+    stage.addEventListener('touchstart', (event) => {
+      if (event.touches.length !== 1) {
+        touchStartX = null;
+        return;
+      }
+      touchStartX = event.touches[0].clientX;
+      touchStartY = event.touches[0].clientY;
+    }, { passive: true });
+    stage.addEventListener('touchend', (event) => {
+      if (touchStartX === null) return;
+      const touch = event.changedTouches[0];
+      const deltaX = touch.clientX - touchStartX;
+      const deltaY = touch.clientY - touchStartY;
+      touchStartX = null;
+      if (Math.abs(deltaX) > 45 && Math.abs(deltaX) > Math.abs(deltaY)) {
+        show(deltaX < 0 ? 1 : -1);
+      }
+    }, { passive: true });
 
     imageLinks.forEach((link) => {
       link.classList.add('lightbox-link');
@@ -220,6 +330,7 @@
     });
   }
   initImageLightbox();
+
 
   /* ---------------------------------------------------------------------
      Mobile navigation: escape, outside click, scroll lock, and focus return.
